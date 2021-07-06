@@ -1,0 +1,2026 @@
+default_update_time: 1s
+default_fuel:
+  Coal:
+    material: COAL
+default_fuel_consumption_intervall: 1s
+default_return_rate: 0.5
+default_break_grace_period: 28d
+decay_intervall: never
+decay_amount: 0
+default_health: 10000
+#What the hell???
+disable_nether: false
+use_recipe_yamlidentifiers: true
+log_inventories: true
+force_include_default: true
+
+factories:
+  Basic_Factory:
+    type: FCC
+    name: Basic Factory
+    setupcost:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 7
+        lore:
+          - Activity reward used in factories
+    recipes:
+    - Upgrade_to_Smelter
+    - Upgrade_to_Coal_Burner
+    - Upgrade_to_Aesthetics_Factory
+    - Upgrade_to_Botanical_Gardens
+    - Upgrade_to_Printing_Press
+    - Upgrade_to_Basic_Cauldron
+    - Upgrade_to_Intermediate_Factory
+    - Accidental_Repair
+
+  #BASIC FACTORIES  
+
+  Smelter:
+    type: FCCUPGRADE
+    name: Smelter  
+    recipes:
+     - Smelt_into_Nether_Bricks
+     - Smelt_Netherrack_into_Netherbrick
+     - Smelt_into_Cracked_Nether_Brick
+     - Smelt_into_Glass
+     - Smelt_Gravel_and_Basalt_to_Cobble
+     - Smelt_Cobble_into_Stone
+     - Smelt_Stone_into_Smooth_Stone
+     - Smelt_Quartz_into_Smooth_Quartz
+     - Accidental_Repair
+  Coal_Burner:
+    type: FCCUPGRADE
+    name: Coal Burner
+    recipes:
+     - Burn_Warped_Stem
+     - Burn_Crimson_Stem
+     - Accidental_Repair
+  Printing_Press:
+    type: FCCUPGRADE
+    name: Printing Press
+    recipes:
+     - Bind_Book
+     - Bind_Writable_Books
+     - Craft_Printing_Plate
+     - Craft_Printing_Plate_JSON
+     - Print_Book
+     - Print_Note
+     - Print_Secure_Note
+     - Accidental_Repair
+  Aesthetics_Factory:
+    type: FCCUPGRADE
+    name: Aesthetics Factory
+    recipes:
+     - Grind_Gravel_into_Sand
+     - Grind_Gravel_into_Red_Sand
+     - Craft_Diorite
+     - Craft_Andesite
+     - Craft_Granite
+     - Craft_Bell
+     - Craft_Cobwebs
+     - Craft_Clay_Blocks
+     - Craft_Dried_Kelp
+     - Craft_Chains
+     - Breakdown_Quartz_Ore
+     - Condense_Sand_to_Sandstone
+     - Condense_Red_Sand_to_Red_Sandstone
+     - Accidental_Repair
+  Botanical_Gardens:
+    type: FCCUPGRADE
+    name: Botanical Gardens
+    recipes:
+     - Random_Roots_to_Flowers
+     - Random_Dye_to_Colour
+     - Cleanse_Magma_to_Slime
+     - Grow_Dirt
+     - Grow_Podzol
+     - Grow_Mycelium
+     - Craft_Paper
+     - Accidental_Repair
+  Basic_Cauldron:
+    type: FCCUPGRADE
+    name: Basic Cauldron
+    recipes:
+     - XP_1_A
+     - XP_1_B
+     - XP_1_C
+     - Accidental_Repair  
+
+  #INTERMEDIATE FACTORIES
+
+  Intermediate_Factory:
+    type: FCCUPGRADE
+    name: Intermediate Factory
+    recipes:
+     - Upgrade_to_Diamond_Armoury
+     - Upgrade_to_Diamond_Tools
+     - Upgrade_to_Ore_Forge
+     - Upgrade_to_Transportation_Factory
+     - Upgrade_to_Compactor
+     - Upgrade_to_Intermediate_Cauldron
+     - Upgrade_to_Expert_Factory
+     - Accidental_Repair
+  Diamond_Armoury:
+    type: FCCUPGRADE
+    name: Diamond Armoury
+    recipes:
+     - Craft_Diamond_Helmets
+     - Craft_Diamond_Chestplates
+     - Craft_Diamond_Leggings
+     - Craft_Diamond_Boots
+     - Accidental_Repair
+  Diamond_Tools:
+    type: FCCUPGRADE
+    name: Diamond Tools
+    recipes:
+     - Craft_Diamond_Pickaxes
+     - Craft_Diamond_Axes
+     - Craft_Diamond_Shovels
+     - Craft_Diamond_Swords
+     - Craft_Diamond_Hoes
+     - Accidental_Repair
+  Ore_Forge:
+    type: FCCUPGRADE
+    name: Ore Forge
+    recipes:
+     - Breakdown_Coal_Ore 
+     - Breakdown_Iron_Ore
+     - Breakdown_Redstone_Ore
+     - Breakdown_Gold_Ore
+     - Breakdown_Diamond_Ore
+     - Accidental_Repair
+  Transportation_Factory:
+    type: FCCUPGRADE
+    name: Transportation Factory
+    recipes:
+     - Forge_Rails
+     - Forge_Powered_Rails
+     - Forge_Detector_Rails
+     - Forge_Activator_Rails
+     - Forge_Minecarts
+     - Craft_Saddles
+     - Accidental_Repair
+  Compactor:
+    type: FCCUPGRADE
+    name: Compactor
+    recipes:
+     - Craft_Crates
+     - Compress_Items
+     - Decompact_Items
+     - Accidental_Repair
+  Intermediate_Cauldron:
+    type: FCCUPGRADE
+    name: Intermediate Cauldron
+    fuel:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
+    recipes:
+     - XP_2_A
+     - XP_2_B
+     - XP_2_C
+     - Accidental_Repair  
+
+  #EXPERT FACTORIES
+  
+  Expert_Factory:
+    type: FCCUPGRADE
+    name: Expert Factory
+    fuel:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
+    recipes:
+     - Upgrade_to_Netherite_Armoury
+     - Upgrade_to_Netherite_Tools
+     - Upgrade_to_Bastion_Factory
+     - Upgrade_to_Expert_Cauldron 
+     - Accidental_Repair
+  Netherite_Armoury:
+    type: FCCUPGRADE
+    name: Netherite Armoury
+    fuel:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
+    recipes:
+     - Craft_Netherite_Helmets
+     - Craft_Netherite_Chestplates
+     - Craft_Netherite_Leggings
+     - Craft_Netherite_Boots
+     - Accidental_Repair
+  Netherite_Tools:
+    type: FCCUPGRADE
+    name: Netherite Tools
+    fuel:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
+    recipes:
+     - Craft_Netherite_Pickaxes
+     - Craft_Netherite_Axes
+     - Craft_Netherite_Shovels
+     - Craft_Netherite_Swords
+     - Craft_Netherite_Hoes
+     - Accidental_Repair
+  Bastion_Factory:
+    type: FCCUPGRADE
+    name: Bastion Factory
+    fuel:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
+    recipes:
+     - Craft_Bastion
+     - Accidental_Repair
+  Expert_Cauldron:
+    type: FCCUPGRADE
+    name: Expert Cauldron
+    fuel:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        lore:
+          - Activity reward used in factories
+    recipes:
+     - XP_3
+     - Accidental_Repair
+
+  #BASIC RECIPES
+
+recipes:
+  Placeholder:
+    production_time: 8s
+    name: Placeholder
+    type: PRODUCTION
+    input:
+      Barrier:
+        material: BARRIER
+        name: You cannot do this yet!
+        amount: 1
+        lore:
+        - Recipe coming soon!
+    output:
+      Nether Star:
+        material: NETHER_STAR
+        name: Coming Soon
+        amount: 1
+  Smelt_into_Nether_Bricks:
+    production_time: 8s
+    name: Smelt into Nether Bricks
+    type: PRODUCTION
+    input:
+      Netherrack:
+        material: NETHERRACK
+        amount: 64
+    output:
+      Nether_bricks:
+        material: NETHER_BRICK
+        amount: 96
+  Smelt_into_Cracked_Nether_Brick:
+    production_time: 8s
+    name: Smelt into Cracked Nether Brick
+    type: PRODUCTION
+    input:
+      Nether_Brick:
+        material: NETHER_BRICKS 
+        amount: 64
+    output:
+      Cracked_Nether_Brick:
+        material: CRACKED_NETHER_BRICKS
+        amount: 80
+  Smelt_into_Glass:
+    production_time: 8s
+    name: Smelt into Glass
+    type: PRODUCTION
+    input:
+      Sand:
+        material: SAND
+        amount: 64
+    output:
+      Glass:
+        material: GLASS
+        amount: 96
+  Burn_Warped_Stem:
+    production_time: 8s
+    name: Burn Warped Stem
+    type: PRODUCTION
+    input:
+      Warped_Stem:
+        material: WARPED_STEM
+        amount: 64
+    output:
+      Coal:
+        material: COAL
+        amount: 128
+  Burn_Crimson_Stem:
+    production_time: 8s
+    name: Burn Crimson Stem
+    type: PRODUCTION
+    input:
+      Crimson_Stem:
+        material: CRIMSON_STEM
+        amount: 64
+    output:
+      Coal:
+        material: COAL
+        amount: 128
+  Grind_Gravel_into_Sand:
+    production_time: 1s
+    name: Grind Gravel into Sand
+    type: PRODUCTION
+    input:
+      Soul_Sand:
+        material: SOUL_SAND
+        amount: 128
+      Soul_Soil:
+        material: SOUL_SOIL
+        amount: 128
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    output:
+      Sand:
+        material: SAND
+        amount: 32
+  Grind_Gravel_into_Red_Sand:
+    production_time: 1s
+    name: Grind Gravel into Red Sand
+    type: PRODUCTION
+    input:
+      Soul_Sand:
+        material: SOUL_SAND
+        amount: 128
+      Soul_Soil:
+        material: SOUL_SOIL
+        amount: 128
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    output:
+      Red_Sand:
+        material: RED_SAND
+        amount: 32
+  Craft_Diorite:
+    production_time: 1s
+    name: Craft Diorite
+    type: PRODUCTION
+    input:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 64
+      Quartz:
+        material: QUARTZ
+        amount: 64
+    output:
+      Diorite:
+        material: DIORITE
+        amount: 96
+  Craft_Andesite:
+    production_time: 1s
+    name: Craft Andesite
+    type: PRODUCTION
+    input:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 32
+      Diorite:
+        material: DIORITE
+        amount: 32
+    output:
+      Andesite:
+        material: ANDESITE
+        amount: 96
+  Craft_Granite:
+    production_time: 1s
+    name: Craft Granite
+    type: PRODUCTION
+    input:
+      Quartz:
+        material: QUARTZ
+        amount: 64
+      Diorite:
+        material: DIORITE
+        amount: 64
+    output:
+      Granite:
+        material: GRANITE
+        amount: 96
+  Smelt_Gravel_and_Basalt_to_Cobble:
+    production_time: 8s
+    name: Smelt Gravel & Basalt into Cobblestone
+    type: PRODUCTION
+    input:
+      Gravel:
+        material: GRAVEL
+        amount: 64
+      Basalt:
+        material: BASALT
+        amount: 64
+      Lava_Bucket:
+        material: LAVA_BUCKET
+        amount: 1  
+    output:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 128
+      Bucket:
+        material: BUCKET
+        amount: 1  
+  Grow_Dirt:
+    production_time: 8s
+    name: Grow Dirt
+    type: PRODUCTION
+    input:
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 16
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 16
+      Soul_Sand:
+        material: SOUL_SAND
+        amount: 32
+    output:
+      Dirt:
+        material: DIRT
+        amount: 16
+  Grow_Podzol:
+    production_time: 8s
+    name: Grow Podzol
+    type: PRODUCTION
+    input:
+      Soul_Sand:
+        material: SOUL_SAND
+        amount: 32
+      Coarse_Dirt:
+        material: DIRT
+        amount: 32
+    output:
+      Podzol:
+        material: PODZOL
+        amount: 16
+  Grow_Mycelium:
+    production_time: 8s
+    name: Grow Mycelium
+    type: PRODUCTION
+    input:
+      Soul_Soil:
+        material: SOUL_SOIL
+        amount: 32
+      Coarse_Dirt:
+        material: DIRT
+        amount: 32
+    output:
+      Mycelium:
+        material: MYCELIUM
+        amount: 16
+  Craft_Dried_Kelp:
+    production_time: 1s
+    name: Craft Dried Kelp Blocks
+    type: PRODUCTION
+    input:
+      Stripped_Warped_Stem:
+        material: STRIPPED_WARPED_STEM
+        amount: 32
+      Green_Dye:
+        material: GREEN_DYE
+        amount: 4
+    output:
+      Dried_Kelp:
+        material: DRIED_KELP_BLOCK
+        amount: 24
+  Craft_Clay_Blocks:
+    production_time: 1s
+    name: Craft Clay Blocks
+    type: PRODUCTION
+    input:
+      Nether_Bricks:
+        material: NETHER_BRICK
+        amount: 32
+      Gravel:
+        material: GRAVEL
+        amount: 8
+    output:
+      Clay_Blocks:
+        material: CLAY
+        amount: 32
+  Craft_Bell:
+    production_time: 1s
+    name: Craft Bell
+    type: PRODUCTION
+    input:
+      Gold_Block:
+        material: GOLD_BLOCK
+        amount: 1
+      Sticks:
+        material: STICK
+        amount: 2
+    output:
+      Bell:
+        material: BELL
+        amount: 1
+  Craft_Cobwebs:
+    production_time: 1s
+    name: Craft Cobwebs
+    type: PRODUCTION
+    input:
+      String:
+        material: STRING
+        amount: 96
+      Slimeball:
+        material: SLIME_BALL
+        amount: 8
+    output:
+      Cobwebs:
+        material: COBWEB
+        amount: 16
+  Craft_Paper:
+    production_time: 8s
+    name: Craft Paper
+    type: PRODUCTION
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 3
+    output:
+      Paper:
+        material: PAPER
+        amount: 3
+  Cleanse_Magma_to_Slime:
+    production_time: 8s
+    name: Cleanse Magma into Slime
+    type: PRODUCTION
+    input:
+      Magma_Cream:
+        material: MAGMA_CREAM
+        amount: 32
+      Water_Bottle:
+        material: POTION
+        amount: 4
+        potion_effects:
+          type: WATER
+    output:
+      Slimeball:
+        material: SLIME_BALL
+        amount: 1
+  Random_Roots_to_Flowers:
+    type: RANDOM
+    name: Grow Roots into Flowers
+    production_time: 1s
+    input:
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 1
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 1
+    outputs:
+      display: Poppy
+      Fern:
+        chance: 0.04
+        Fern:
+          material: FERN
+          amount: 1
+      Dead_Bush:
+        chance: 0.04
+        Dead_Bush:
+          material: DEAD_BUSH
+          amount: 1
+      Sea_Pickle:
+        chance: 0.04
+        Sea_Pickle:
+          material: SEA_PICKLE
+          amount: 1
+      Dandelion:
+        chance: 0.04
+        Dandelion:
+          material: DANDELION
+          amount: 1
+      Poppy:
+        chance: 0.04
+        Poppy:
+          material: POPPY
+          amount: 1
+      Blue_Orchid:
+        chance: 0.04
+        Blue_Orchid:
+          material: BLUE_ORCHID
+          amount: 1
+      Allium:
+        chance: 0.04
+        Allium:
+          material: ALLIUM
+          amount: 1
+      Azure_Bluet:
+        chance: 0.04
+        Azure_Bluet:
+          material: AZURE_BLUET
+          amount: 1
+      Red_Tulip:
+        chance: 0.04
+        Red_Tulip:
+          material: RED_TULIP
+          amount: 1
+      Orange_Tulip:
+        chance: 0.04
+        Orange_Tulip:
+          material: ORANGE_TULIP
+          amount: 1
+      White_Tulip:
+        chance: 0.04
+        White_Tulip:
+          material: WHITE_TULIP
+          amount: 1
+      Pink_Tulip:
+        chance: 0.04
+        Pink_Tulip:
+          material: PINK_TULIP
+          amount: 1
+      Oxeye_Daisy:
+        chance: 0.04
+        Oxeye_Daisy:
+          material: OXEYE_DAISY
+          amount: 1
+      Cornflower:
+        chance: 0.04
+        Cornflower:
+          material: CORNFLOWER
+          amount: 1
+      Lily_Of_The_Valley:
+        chance: 0.04
+        Lily_Of_The_Valley:
+          material: LILY_OF_THE_VALLEY
+          amount: 1
+      Wither_Rose:
+        chance: 0.04
+        Wither_Rose:
+          material: WITHER_ROSE
+          amount: 1
+      #Replace me with Cactus when they arent a lag source in RB
+      Green_Dye:
+        chance: 0.04
+        Green_Dye:
+          material: GREEN_DYE
+          amount: 1
+      Vines:
+        chance: 0.04
+        Vines:
+          material: VINE
+          amount: 1
+      Lily_Pad:
+        chance: 0.04
+        Lily_Pad:
+          material: LILY_PAD
+          amount: 1
+      Sunflower:
+        chance: 0.04
+        Sunflower:
+          material: SUNFLOWER
+          amount: 1
+      Lilac:
+        chance: 0.04
+        Lilac:
+          material: LILAC
+          amount: 1
+      Rose_Bush:
+        chance: 0.04
+        Rose_Bush:
+          material: ROSE_BUSH
+          amount: 1
+      Peony:
+        chance: 0.04
+        Peony:
+          material: PEONY
+          amount: 1
+      Large_Fern:
+        chance: 0.04
+        Large_Fern:
+          material: LARGE_FERN
+          amount: 1
+      Turtle_Egg:
+        chance: 0.04
+        Turtle_Egg:
+          material: TURTLE_EGG
+          amount: 1
+  Craft_Chains:
+    production_time: 1s
+    name: Craft Chains
+    type: PRODUCTION
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 1
+    output:
+      Chains:
+        material: CHAIN
+        amount: 12
+  Bind_Book:
+    production_time: 1s
+    name: Bind Book
+    type: PRODUCTION
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 3
+      Leather:
+        material: LEATHER
+        amount: 1
+    output:
+      Book:
+        material: BOOK
+        amount: 3
+  Bind_Writable_Books:
+    production_time: 1s
+    name: Bind Writable Books
+    type: PRODUCTION
+    input:
+      Books:
+        material: BOOK
+        amount: 3
+      Black_Dye:
+        material: BLACK_DYE
+        amount: 3
+    output:
+      Writable_Books:
+        material: WRITABLE_BOOK
+        amount: 3
+  Craft_Printing_Plate:
+    type: PRINTINGPLATE
+    name: Craft Printing Plate
+    production_time: 1s
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 1
+    output:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Craft_Printing_Plate_JSON:
+    type: PRINTINGPLATEJSON
+    name: Craft JSON Printing Plate
+    production_time: 1s
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 1
+    output:
+      JSON_Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Print_Book:
+    type: PRINTBOOK
+    name: Print Book
+    production_time: 1s
+    outputamount: 6
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 18
+      Black_Dye:
+        material: BLACK_DYE
+        amount: 1
+    printingplate:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Print_Note:
+    type: PRINTNOTE
+    name: Print Note
+    production_time: 1s
+    securenote: false
+    title: Pamphlet
+    outputamount: 3
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 5
+    printingplate:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Print_Secure_Note:
+    type: PRINTNOTE
+    name: Print Secure Note
+    production_time: 1s
+    securenote: true
+    title: Secure Note
+    outputamount: 3
+    input:
+      Bamboo:
+        material: BAMBOO
+        amount: 5
+    printingplate:
+      Printing_Plate:
+        material: OAK_TRAPDOOR
+        amount: 1
+  Breakdown_Quartz_Ore:
+    production_time: 1s
+    name: Breakdown Quartz Ore
+    type: PRODUCTION
+    input:
+      Quartz_Ore:
+        material: NETHER_QUARTZ_ORE
+        amount: 16
+    output:
+      Quartz:
+        material: QUARTZ
+        amount: 96
+  Smelt_Cobble_into_Stone:
+    production_time: 1s
+    name: Smelt Cobblestone into Stone
+    type: PRODUCTION
+    input:
+      Cobblestone:
+        material: COBBLESTONE
+        amount: 64
+    output:
+      Stone:
+        material: STONE
+        amount: 96
+  #No I will not conform to americanism here
+  Random_Dye_to_Colour:
+    type: RANDOM
+    name: Convert White Dye to Colour
+    production_time: 1s
+    input:
+      White_Dye:
+        material: WHITE_DYE
+        amount: 1
+    outputs:
+      display: RED_DYE
+      White:
+        chance: 0.0625
+        White:
+          material: WHITE_DYE
+          amount: 1
+      Orange:
+        chance: 0.0625
+        Orange:
+          material: ORANGE_DYE
+          amount: 1
+      Magenta:
+        chance: 0.0625
+        Magenta:
+          material: MAGENTA_DYE
+          amount: 1
+      Light_Blue:
+        chance: 0.0625
+        Light_Blue:
+          material: LIGHT_BLUE_DYE
+          amount: 1
+      Yellow:
+        chance: 0.0625
+        Yellow:
+          material: YELLOW_DYE
+          amount: 1
+      Lime:
+        chance: 0.0625
+        Lime:
+          material: LIME_DYE
+          amount: 1
+      Pink:
+        chance: 0.0625
+        Pink:
+          material: PINK_DYE
+          amount: 1
+      Gray:
+        chance: 0.0625
+        Gray:
+          material: GRAY_DYE
+          amount: 1
+      Light_Gray:
+        chance: 0.0625
+        Light_Gray:
+          material: LIGHT_GRAY_DYE
+          amount: 1
+      Cyan:
+        chance: 0.0625
+        Cyan:
+          material: CYAN_DYE
+          amount: 1
+      Purple:
+        chance: 0.0625
+        Purple:
+          material: PURPLE_DYE
+          amount: 1
+      Blue:
+        chance: 0.0625
+        Blue:
+          material: BLUE_DYE
+          amount: 1
+      Brown:
+        chance: 0.0625
+        Brown:
+          material: BROWN_DYE
+          amount: 1
+      Green:
+        chance: 0.0625
+        Green:
+          material: GREEN_DYE
+          amount: 1
+      Red:
+        chance: 0.0625
+        Red:
+          material: RED_DYE
+          amount: 1
+      Black:
+        chance: 0.0625
+        Black:
+          material: BLACK_DYE
+          amount: 1
+  Smelt_Netherrack_into_Netherbrick:
+    production_time: 1s
+    name: Smelt Netherrack into Netherbrick
+    type: PRODUCTION
+    input:
+      Netherrack:
+        material: NETHERRACK
+        amount: 64
+    output:
+      Netherbrick:
+        material: NETHER_BRICKS
+        amount: 96
+  Smelt_Stone_into_Smooth_Stone:
+    production_time: 1s
+    name: Smelt Stone into Smooth Stone
+    type: PRODUCTION
+    input:
+      Stone:
+        material: STONE
+        amount: 64
+    output:
+      Smooth_Stone:
+        material: SMOOTH_STONE
+        amount: 96
+  Smelt_Quartz_into_Smooth_Quartz:
+    production_time: 1s
+    name: Smelt Quartz into Smooth Quartz
+    type: PRODUCTION
+    input:
+      Quartz_Block:
+        material: QUARTZ_BLOCK
+        amount: 64
+    output:
+      Smooth_Stone:
+        material: SMOOTH_QUARTZ
+        amount: 96
+  Condense_Sand_to_Sandstone:
+    production_time: 1s
+    name: Condense Sand to Sandstone
+    type: PRODUCTION
+    input:
+      Sand:
+        material: SAND
+        amount: 32
+    output:
+      Sandstone:
+        material: SANDSTONE
+        amount: 512
+  Condense_Red_Sand_to_Red_Sandstone:
+    production_time: 1s
+    name: Condense Red Sand to Red Sandstone
+    type: PRODUCTION
+    input:
+      Red_Sand:
+        material: RED_SAND
+        amount: 32
+    output:
+      Red_Sandstone:
+        material: RED_SANDSTONE
+        amount: 512
+
+  #INTERMEDIATE RECIPES
+
+  Craft_Diamond_Helmets:
+    production_time: 8s
+    name: Craft Diamond Helmets
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 35
+    output:
+      Diamond_Helmets:
+        material: DIAMOND_HELMET
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Diamond_Chestplates:
+    production_time: 8s
+    name: Craft Diamond Chestplates
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 56
+    output:
+      Diamond_Chestplates:
+        material: DIAMOND_CHESTPLATE
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Diamond_Leggings:
+    production_time: 8s
+    name: Craft Diamond Leggings
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 49
+    output:
+      Diamond_Leggings:
+        material: DIAMOND_LEGGINGS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Diamond_Boots:
+    production_time: 8s
+    name: Craft Diamond Boots
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 28
+    output:
+      Diamond_Boots:
+        material: DIAMOND_BOOTS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Diamond_Pickaxes:
+    production_time: 8s
+    name: Craft Diamond Pickaxes
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 21
+    output:
+      Diamond_Pickaxes:
+        material: DIAMOND_PICKAXE
+        amount: 8
+  Craft_Diamond_Axes:
+    production_time: 8s
+    name: Craft Diamond Axes
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 21
+    output:
+      Diamond_Axes:
+        material: DIAMOND_AXE
+        amount: 8
+  Craft_Diamond_Shovels:
+    production_time: 8s
+    name: Craft Diamond Shovels
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 7
+    output:
+      Diamond_Shovels:
+        material: DIAMOND_SHOVEL
+        amount: 8
+  Craft_Diamond_Swords:
+    production_time: 8s
+    name: Craft Diamond Swords
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 14
+    output:
+      Diamond_Swords:
+        material: DIAMOND_SWORD
+        amount: 8
+  Craft_Diamond_Hoes:
+    production_time: 8s
+    name: Craft Diamond Hoes
+    type: PRODUCTION
+    input:
+      Diamond:
+        material: DIAMOND
+        amount: 14
+    output:
+      Diamond_Hoes:
+        material: DIAMOND_HOE
+        amount: 8
+  Breakdown_Iron_Ore:
+    production_time: 8s
+    name: Breakdown Iron Ore
+    type: PRODUCTION
+    input:
+      Iron_Ore:
+        material: IRON_ORE
+        amount: 64
+    output:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 80
+  Breakdown_Redstone_Ore:
+    production_time: 8s
+    name: Breakdown Redstone Ore
+    type: PRODUCTION
+    input:
+      Redstone_Ore:
+        material: REDSTONE_ORE
+        amount: 64
+    output:
+      Redstone_Block:
+        material: REDSTONE_BLOCK
+        amount: 50
+  Breakdown_Gold_Ore:
+    production_time: 8s
+    name: Breakdown Gold Ore
+    type: PRODUCTION
+    input:
+      Nether_Gold_Ore:
+        material: NETHER_GOLD_ORE
+        amount: 32
+    output:
+      Gold_Ingot:
+        material: GOLD_INGOT
+        amount: 40
+      Brown_Dye_Byproduct:
+        material: BROWN_DYE
+        amount: 8  
+  Breakdown_Diamond_Ore:
+    production_time: 8s
+    name: Breakdown Diamond Ore
+    type: PRODUCTION
+    input:
+      Diamond_Ore:
+        material: DIAMOND_ORE
+        amount: 16
+    output:
+      Diamond:
+        material: DIAMOND
+        amount: 40
+      Lapis_Byproduct:
+        material: LAPIS_LAZULI
+        amount: 16
+      Prismarine_Byproduct:
+        material: PRISMARINE_SHARD
+        amount: 16
+      Prismarine_Crystal_Byproduct:
+        material: PRISMARINE_CRYSTALS
+        amount: 16
+  Breakdown_Coal_Ore:
+    production_time: 8s
+    name: Breakdown Coal Ore
+    type: PRODUCTION
+    input:
+      Coal_Ore:
+        material: COAL_ORE
+        amount: 48
+    output:
+      Coal_Block:
+        material: COAL_BLOCK
+        amount: 16
+  Forge_Rails:
+    production_time: 8s
+    name: Forge Rails
+    type: PRODUCTION
+    input:
+      Lava_Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Chest:
+        material: CHEST
+        amount: 1    
+    output:
+      Buckets:
+        material: BUCKET
+        amount: 4
+      Rails:
+        material: RAIL
+        amount: 64
+  Forge_Powered_Rails:
+    production_time: 8s
+    name: Forge Powered Rails
+    type: PRODUCTION
+    input:
+      Lava_Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Gold_Ingot:
+        material: GOLD_INGOT
+        amount: 12
+      Redstone:
+        material: REDSTONE
+        amount: 8  
+      Chest:
+        material: CHEST
+        amount: 1    
+    output:
+      Powered_Rails:
+        material: POWERED_RAIL
+        amount: 64
+      Buckets:
+        material: BUCKET
+        amount: 4
+  Forge_Detector_Rails:
+    production_time: 8s
+    name: Forge Detector Rails
+    type: PRODUCTION
+    input:
+      Lava_Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Gold_Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Redstone:
+        material: REDSTONE
+        amount: 8  
+      Blackstone_Pressure_Pad:
+        material: POLISHED_BLACKSTONE_PRESSURE_PLATE
+        amount: 4    
+    output:
+      Detector_Rails:
+        material: DETECTOR_RAIL
+        amount: 64
+      Buckets:
+        material: BUCKET
+        amount: 4
+  Forge_Activator_Rails:
+    production_time: 8s
+    name: Forge Activator Rails
+    type: PRODUCTION
+    input:
+      Lava_Bucket:
+        material: LAVA_BUCKET
+        amount: 4
+      Gold_Ingot:
+        material: IRON_INGOT
+        amount: 12
+      Redstone:
+        material: REDSTONE_TORCH
+        amount: 4     
+    output:
+      Activator_Rails:
+        material: ACTIVATOR_RAIL
+        amount: 64
+      Buckets:
+        material: BUCKET
+        amount: 4
+  Forge_Minecarts:
+    production_time: 8s
+    name: Forge Minecarts
+    type: PRODUCTION
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 35    
+    output:
+      Minecarts:
+        material: MINECART
+        amount: 8
+  Craft_Saddles:
+    production_time: 8s
+    name: Craft Saddles
+    type: PRODUCTION
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 16
+      Leather:
+        material: LEATHER
+        amount: 64
+    output:
+      Saddles:
+        material: SADDLE
+        amount: 8
+  Compress_Items:
+    production_time: 1s
+    fuel_consumption_intervall: 99999s
+    name: Compress Items
+    type: COMPACT
+    input:
+      Crates:
+        material: CHEST
+        name: Crate
+        lore:
+          - Crate - Used to Compact Items!
+    compact_lore: Compacted Item
+    excluded_materials:
+      - BOOK
+  Decompact_Items:
+    production_time: 1s
+    fuel_consumption_intervall: 99999s
+    name: Decompact Items
+    type: DECOMPACT
+    input:
+    compact_lore: Compacted Item
+    excluded_materials:
+      - BOOK
+  Craft_Crates:
+    production_time: 8s
+    name: Craft Crates
+    type: PRODUCTION
+    input:
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 8
+      Chests:
+        material: CHEST
+        amount: 64
+    output:
+      Crates:
+        material: CHEST
+        amount: 64
+        name: Crate
+        lore:
+          - Crate - Used to Compact Items!
+
+  #EXPERT RECIPES
+
+  Craft_Netherite_Helmets:
+    production_time: 8s
+    name: Craft Netherite Helmets
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 35
+    output:
+      Netherite__Helmets:
+        material: NETHERITE_HELMET
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Netherite_Chestplates:
+    production_time: 8s
+    name: Craft Netherite Chestplates
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 56
+    output:
+      Netherite_Chestplates:
+        material: NETHERITE_CHESTPLATE
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Netherite_Leggings:
+    production_time: 8s
+    name: Craft Netherite Leggings
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 49
+    output:
+      Netherite_Leggings:
+        material: NETHERITE_LEGGINGS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Netherite_Boots:
+    production_time: 8s
+    name: Craft Netherite Boots
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 28
+    output:
+      Netherite_Boots:
+        material: NETHERITE_BOOTS
+        amount: 8
+        enchants:
+          Vanishing:
+            enchant: VANISHING_CURSE
+  Craft_Netherite_Pickaxes:
+    production_time: 8s
+    name: Craft Netherite Pickaxes
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 21
+    output:
+      Netherite_Pickaxes:
+        material: NETHERITE_PICKAXE
+        amount: 8
+  Craft_Netherite_Axes:
+    production_time: 8s
+    name: Craft Netherite Axes
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 21
+    output:
+      Netherite_Axes:
+        material: NETHERITE_AXE
+        amount: 8
+  Craft_Netherite_Shovels:
+    production_time: 8s
+    name: Craft Netherite Shovels
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 7
+    output:
+      Netherite_Shovels:
+        material: NETHERITE_SHOVEL
+        amount: 8
+  Craft_Netherite_Swords:
+    production_time: 8s
+    name: Craft Netherite Swords
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 14
+    output:
+      Netherite_Swords:
+        material: NETHERITE_SWORD
+        amount: 8
+  Craft_Netherite_Hoes:
+    production_time: 8s
+    name: Craft Netherite Hoes
+    type: PRODUCTION
+    input:
+      Netherite:
+        material: NETHERITE_INGOT
+        amount: 14
+    output:
+      Netherite_Hoes:
+        material: NETHERITE_HOE
+        amount: 8
+  Craft_Bastion:
+    production_time: 1s
+    name: Craft Bastion
+    type: PRODUCTION
+    input:
+      Emerald_Block:
+        material: EMERALD_BLOCK
+        amount: 1
+      Sugar:
+        material: SUGAR
+        amount: 8
+      Lava_Buckets:
+        material: LAVA_BUCKET
+        amount: 2
+      Iron_Ingot:
+        material: IRON_INGOT
+        amount: 16
+      Diamond:
+        material: DIAMOND
+        amount: 4
+      Water_Bottle:
+        material: POTION
+        amount: 2
+        potion_effects:
+          type: WATER
+      Obsidian:
+        material: OBSIDIAN
+        amount: 8
+      Cooked_Porkchop:
+        material: COOKED_PORKCHOP
+        amount: 8
+      Nether_Brick_Item:
+        material: NETHER_BRICK
+        amount: 32
+        lore:
+          - Compacted Item
+    output:
+      Bastion:
+        material: ENDER_CHEST
+        amount: 5
+        name: Bastion
+        lore:
+          - This bastion will protect you from grief,
+          - Protects only the block and above where it is placed,
+          - Takes ~10 mins of placing to break.
+  XP_1_A:
+    production_time: 8s
+    name: Produce Basic XP A
+    type: PRODUCTION
+    input:
+      Nether_Wart:
+        material: NETHER_WART
+        amount: 512
+      Shroomlight:
+        material: SHROOMLIGHT
+        amount: 64
+      Water_Bottle:
+        material: POTION
+        amount: 1
+        potion_effects:
+          type: WATER
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 1
+        lore:
+          - Activity reward used in factories
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 1
+  XP_1_B:
+    production_time: 8s
+    name: Produce Basic XP B
+    type: PRODUCTION
+    input:
+      Weeping_Vines:
+        material: WEEPING_VINES
+        amount: 1024
+      Shroomlight:
+        material: SHROOMLIGHT
+        amount: 64
+      Water_Bottle:
+        material: POTION
+        amount: 1
+        potion_effects:
+          type: WATER
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 1
+        lore:
+          - Activity reward used in factories
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 1
+  XP_1_C:
+    production_time: 8s
+    name: Produce Basic XP C
+    type: PRODUCTION
+    input:
+      Twisting_Vines:
+        material: TWISTING_VINES
+        amount: 1024
+      Shroomlight:
+        material: SHROOMLIGHT
+        amount: 64
+      Water_Bottle:
+        material: POTION
+        amount: 1
+        potion_effects:
+          type: WATER
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 1
+        lore:
+          - Activity reward used in factories
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 1
+  XP_2_A:
+    production_time: 1s
+    name: Produce Intermediate XP A
+    type: PRODUCTION
+    input:
+      Nether_Wart:
+        material: NETHER_WART
+        amount: 512
+      Weeping_Vines:
+        material: WEEPING_VINES
+        amount: 1024
+      Nether_Wart_Block:
+        material: NETHER_WART_BLOCK
+        amount: 256
+      Warped_Wart_Block:
+        material: WARPED_WART_BLOCK
+        amount: 256
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 128
+      Water_Bottle:
+        material: POTION
+        amount: 1
+        potion_effects:
+          type: WATER
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 3
+  XP_2_B:
+    production_time: 1s
+    name: Produce Intermediate XP B
+    type: PRODUCTION
+    input:
+      Nether_Wart:
+        material: NETHER_WART
+        amount: 512
+      Twisting_Vines:
+        material: TWISTING_VINES
+        amount: 1024
+      Nether_Wart_Block:
+        material: NETHER_WART_BLOCK
+        amount: 256
+      Warped_Wart_Block:
+        material: WARPED_WART_BLOCK
+        amount: 256
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 128
+      Water_Bottle:
+        material: POTION
+        amount: 1
+        potion_effects:
+          type: WATER
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 3
+  XP_2_C:
+    production_time: 1s
+    name: Produce Intermediate XP C
+    type: PRODUCTION
+    input:
+      Weeping_Vines:
+        material: WEEPING_VINES
+        amount: 1024
+      Twisting_Vines:
+        material: TWISTING_VINES
+        amount: 1024
+      Nether_Wart_Block:
+        material: NETHER_WART_BLOCK
+        amount: 256
+      Warped_Wart_Block:
+        material: WARPED_WART_BLOCK
+        amount: 256
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 64
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 64
+      Water_Bottle:
+        material: POTION
+        amount: 1
+        potion_effects:
+          type: WATER
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 3
+  XP_3:
+    production_time: 8s
+    name: Produce Expert XP
+    type: PRODUCTION
+    input:
+      Nether_Wart:
+        material: NETHER_WART
+        amount: 64
+        lore:
+          - Compacted Item
+      Weeping_Vines:
+        material: WEEPING_VINES
+        amount: 128
+        lore:
+          - Compacted Item
+      Twisting_Vines:
+        material: TWISTING_VINES
+        amount: 128
+        lore:
+          - Compacted Item
+      Nether_Wart_Block:
+        material: NETHER_WART_BLOCK
+        amount: 32
+        lore:
+          - Compacted Item
+      Warped_Wart_Block:
+        material: WARPED_WART_BLOCK
+        amount: 32
+        lore:
+          - Compacted Item
+      Shroomlight:
+        material: SHROOMLIGHT
+        amount: 6
+        lore:
+          - Compacted Item
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 16
+        lore:
+          - Compacted Item
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 16
+        lore:
+          - Compacted Item
+      Nether_Sprouts:
+        material: NETHER_SPROUTS
+        amount: 16
+        lore:
+          - Compacted Item
+      Water_Bottle:
+        material: POTION
+        amount: 8
+        potion_effects:
+          type: WATER
+    output:
+      XP:
+        material: EMERALD_BLOCK
+        amount: 48
+  #BASIC UPGRADES
+
+  Upgrade_to_Smelter:
+    production_time: 8s
+    name: Upgrade to Smelter
+    type: UPGRADE
+    input:
+      Netherrack:
+        material: NETHERRACK
+        amount: 64
+      Furance:
+        material: FURNACE
+        amount: 8
+      Coal_block:
+        material: COAL_BLOCK
+        amount: 8
+    factory: Smelter
+  Upgrade_to_Coal_Burner:
+    production_time: 8s
+    name: Upgrade to Coal Burner
+    type: UPGRADE
+    input:
+      Warped_Stem:
+        material: WARPED_STEM
+        amount: 64
+      Crimson_Stem:
+        material: CRIMSON_STEM
+        amount: 64
+      Coal:
+        material: COAL
+        amount: 64
+    factory: Coal Burner
+  Upgrade_to_Printing_Press:
+    production_time: 8s
+    name: Upgrade to Printing Press
+    type: UPGRADE
+    input:
+      Book:
+        material: BOOK
+        amount: 4
+      Black_Dye:
+        material: BLACK_DYE
+        amount: 4
+    factory: Printing Press
+  Upgrade_to_Aesthetics_Factory:
+    production_time: 8s
+    name: Upgrade to Aesthetics Factory
+    type: UPGRADE
+    input:
+      Blackstone:
+        material: BLACKSTONE
+        amount: 64
+      Basalt:
+        material: BASALT
+        amount: 64
+      Gravel:
+        material: GRAVEL
+        amount: 64
+    factory: Aesthetics Factory
+  Upgrade_to_Botanical_Gardens:
+    production_time: 8s
+    name: Upgrade to Botanical Gardens
+    type: UPGRADE
+    input:
+      Crimson_Roots:
+        material: CRIMSON_ROOTS
+        amount: 64
+      Warped_Roots:
+        material: WARPED_ROOTS
+        amount: 64
+    factory: Botanical Gardens
+  Upgrade_to_Basic_Cauldron:
+    production_time: 8s
+    name: Upgrade to Basic Cauldron
+    type: UPGRADE
+    input:
+      Iron_Block:
+        material: IRON_BLOCK
+        amount: 8
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 8
+        lore:
+          - Activity reward used in factories
+    factory: Basic Cauldron
+
+  #INTERMEDIATE UPGRADES
+
+  Upgrade_to_Intermediate_Factory:
+    production_time: 8s
+    name: Upgrade to Intermediate Factory
+    type: UPGRADE
+    input:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 21
+        lore:
+          - Activity reward used in factories
+    factory: Intermediate Factory
+  Upgrade_to_Diamond_Armoury:
+    production_time: 8s
+    name: Upgrade to Diamond Armoury
+    type: UPGRADE
+    input:
+      Diamond_Block:
+        material: DIAMOND_BLOCK
+        amount: 8
+    factory: Diamond Armoury
+  Upgrade_to_Diamond_Tools:
+    production_time: 8s
+    name: Upgrade to Diamond Tools
+    type: UPGRADE
+    input:
+      Diamond_Block:
+        material: DIAMOND_BLOCK
+        amount: 8
+    factory: Diamond Tools
+  Upgrade_to_Ore_Forge:
+    production_time: 8s
+    name: Upgrade to Ore Forge
+    type: UPGRADE
+    input:
+      Diamond_Ore:
+        material: DIAMOND_ORE
+        amount: 64
+      Gold_Ore:
+        material: NETHER_GOLD_ORE
+        amount: 128
+      Redstone_Ore:
+        material: REDSTONE_ORE
+        amount: 64
+      Iron_Ore:
+        material: IRON_ORE
+        amount: 256
+    factory: Ore Forge
+  Upgrade_to_Transportation_Factory:
+    production_time: 8s
+    name: Upgrade to Transportation Factory
+    type: UPGRADE
+    input:
+      Minecart:
+        material: MINECART
+        amount: 1
+      Leather:
+        material: LEATHER
+        amount: 32
+    factory: Transportation Factory
+  Upgrade_to_Compactor:
+    production_time: 8s
+    name: Upgrade to Compactor
+    type: UPGRADE
+    input:
+      Pistons:
+        material: PISTON
+        amount: 32
+      Redstone_Block:
+        material: REDSTONE_BLOCK
+        amount: 1
+      Iron_Block:
+        material: IRON_BLOCK
+        amount: 32
+      Chests:
+        material: CHEST
+        amount: 32
+    factory: Compactor
+  Upgrade_to_Intermediate_Cauldron:
+    production_time: 8s
+    name: Upgrade to Intermediate Cauldron
+    type: UPGRADE
+    input:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 32
+        lore:
+          - Activity reward used in factories
+      Diamond_Block:
+        material: DIAMOND_BLOCK
+        amount: 8
+    factory: Intermediate Cauldron
+
+  #EXPERT UPGRADES
+
+  Upgrade_to_Expert_Factory:
+    production_time: 8s
+    name: Upgrade to Expert Factory
+    type: UPGRADE
+    input:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 42
+        lore:
+          - Activity reward used in factories
+    factory: Expert Factory
+  Upgrade_to_Netherite_Armoury:
+    production_time: 8s
+    name: Upgrade to Netherite Armoury
+    type: UPGRADE
+    input:
+      Netherite:
+        material: NETHERITE_BLOCK
+        amount: 8
+    factory: Netherite Armoury
+  Upgrade_to_Netherite_Tools:
+    production_time: 8s
+    name: Upgrade to Netherite Tools
+    type: UPGRADE
+    input:
+      Netherite:
+        material: NETHERITE_BLOCK
+        amount: 8
+    factory: Netherite Tools
+  Upgrade_to_Bastion_Factory:
+    production_time: 8s
+    name: Upgrade to Bastion Factory
+    type: UPGRADE
+    input:
+      Emerald_Block:
+        material: EMERALD_BLOCK
+        amount: 32
+      Sugar:
+        material: SUGAR
+        amount: 64
+      Iron_Block:
+        material: IRON_BLOCK
+        amount: 16
+      Diamond_Block:
+        material: DIAMOND_BLOCK
+        amount: 4
+      Water_Bottle:
+        material: POTION
+        amount: 8
+        potion_effects:
+          type: WATER
+      Obsidian:
+        material: OBSIDIAN
+        amount: 64
+      Netherite:
+        material: NETHERITE_BLOCK
+        amount: 2
+    factory: Bastion Factory
+  Upgrade_to_Expert_Cauldron:
+    production_time: 8s
+    name: Upgrade to Expert Cauldron
+    type: UPGRADE
+    input:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 64
+        lore:
+          - Activity reward used in factories
+      Netherite_Block:
+        material: NETHERITE_BLOCK
+        amount: 8
+    factory: Expert Cauldron
+
+  #Accidental_Repair
+
+  Accidental_Repair:
+    name: Accidental Repair
+    production_time: 8s
+    type: REPAIR
+    input:
+      Souls:
+        material: ENDER_EYE
+        name: Souls
+        amount: 1
+        lore:
+          - Activity reward used in factories
+    health_gained: 10000

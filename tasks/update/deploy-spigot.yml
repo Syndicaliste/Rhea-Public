@@ -1,0 +1,17 @@
+#Builds spigot if it doesn't exist yet and copies it into a server folder
+
+#Expects the following variables:
+
+#mc_server_folder
+
+- name: Check if Spigot exists
+  stat:
+    path: "{{ main_folder }}/BuildTools/spigot-{{ mc_version }}.jar"
+  register: spigot_exist
+
+- name: Build Spigot if necessary
+  include: "tasks/update/build-spigot.yml"
+  when: spigot_exist.stat.exists == False
+
+- name: "Copy {{ servername }} Spigot.jar"
+  copy: "src={{ main_folder }}/BuildTools/spigot-{{ mc_version }}.jar dest={{ mc_server_folder }}/{{ mc_jar }}.jar owner={{ unix_username }}"

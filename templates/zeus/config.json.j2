@@ -1,0 +1,41 @@
+{
+  "rabbitmq": {
+    "host":"localhost"
+  },
+  "servers": [
+        {
+                "type":"artemis",
+                "id":"alpha"
+        },
+        {
+                "type":"artemis",
+                "id":"beta"
+        },
+        {
+                "type":"artemis",
+                "id":"gamma"
+        },
+        {
+                "type":"artemis",
+                "id":"delta"
+        },
+        {
+                "type":"apollo",
+                "id":"bungee1"
+        },
+        {
+                "type":"artemis",
+                "id":"lobby",
+                "non_rabbit_user": "true"
+        }
+  ],
+  "database": {
+    "user": "{{ postgres_user }}",
+    "password": "{{ postgres_password }}",
+    "host": "{{ postgres_host }}",
+    "port": "{{ postgres_port }}",
+    "database": "{{ postgres_database }}"
+  },
+  "allowNameChanges": "false",
+  "lobby": "lobby"
+}

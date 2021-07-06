@@ -1,0 +1,68 @@
+---
+#task to deploy bungee including plugins and their configs
+
+- name: "Create Bungee Directory"
+  file: "path={{ full_bungee_folder }} state=directory owner={{ unix_username }} mode=0755"
+
+- name: "Create Bungee Plugins Directory"
+  file: "path={{ full_bungee_folder }}/plugins state=directory owner={{ unix_username }} mode=0755"
+
+#--- Public bungee templates
+
+- name: "Collect bungee top level public templates"
+  stat:
+    path: "{{ bungee_template_folder }}/{{ top_level_template }}.j2"
+  register: bungee_pub_top_level_templates
+  with_items: "{{ bungee_top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy bungee top level public templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_bungee_folder }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ bungee_pub_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+#--- Private bungee templates
+
+- name: "Collect bungee top level private templates"
+  stat:
+    path: "{{ bungee_template_folder }}/{{ top_level_template }}.j2.priv"
+  register: bungee_priv_top_level_templates
+  with_items: "{{ bungee_top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy bungee top level private templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_bungee_folder }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ bungee_priv_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+
+- name: Make startup script executable
+  file: dest={{ full_bungee_folder }}/{{ bungee_startup_script }} mode=u+x
+
+- name: "Download Bungee"
+  get_url:
+    url: "{{ bungee_url }}"
+    dest: "{{ full_bungee_folder }}/{{ bungee_jar }}.jar"
+    mode: 0755
+    owner: "{{ unix_username }}"
+    force: true
+
+- name: "Clean existing Bungee plugin jarfiles"
+  shell: "rm {{ full_bungee_folder }}/plugins/*.jar"
+  ignore_errors: true
+
+- name: "Deploy Bungee plugins"
+  include: "tasks/update/deploy-plugin.yml plugin_name={{ bungee_plugin_name }} target_plugin_dir={{ full_bungee_folder }}/plugins plugin_jar_folder={{ bungee_jar_folder }} shard_plugin_config_folder={{ bungee_template_folder }}/{{ bungee_plugin_name }}"
+  with_items: "{{ bungee_plugins }}"
+  loop_control:
+    loop_var: bungee_plugin_name

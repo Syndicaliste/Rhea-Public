@@ -1,0 +1,19 @@
+---
+#task to deploy a category of shards
+#Expects the following variables:
+
+#category_name  Name of the category
+#mc_server_folder General folder the folders for the minecraft servers each will go in
+
+
+- name: "Include category specific variables"
+  include_vars:
+    file: "variables/{{category_name}}_config.yml"
+
+
+- name: "Deploy {{ category_name }} shards"
+  include: "tasks/update/deploy-shard.yml full_path={{ full_servers_folder }}/{{ shard.name }}"
+  with_items: "{{ shards }}"
+  when: "category_name in shard.categories"
+  loop_control:
+    loop_var: shard

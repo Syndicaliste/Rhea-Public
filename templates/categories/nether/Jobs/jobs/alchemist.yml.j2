@@ -1,0 +1,117 @@
+Alchemist:
+  fullname: Alchemist
+  shortname: Al
+  description: Earns points brewing potions.
+  ChatColour: LIGHT_PURPLE
+  chat-display: full
+  max-level: 666
+  leveling-progression-equation: 10*(joblevel*joblevel)+(joblevel*joblevel*4)
+  income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(baseincome*(joblevel-1)*0.01))
+    * ((numjobs-1)*0.05))
+  points-progression-equation: basepoints
+  experience-progression-equation: baseexperience
+  rejoinCooldown: 10
+  maxDailyQuests: 1
+  Quests:
+    '1':
+      Name: Mr upgrader
+      Objectives:
+      - Brew;glowstone_dust;3
+      - Brew;redstone;3
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Brew some stuff and 
+      - Get 100 points & exp for this!
+    '2':
+      Name: Awkward Quest
+      Objectives:
+      - Brew;nether_wart;6
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Brew some stuff and
+      - Get 100 points & exp for this!
+    '3':
+      Name: Splash Splosh
+      Objectives:
+      - Brew;gunpowder;6
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Brew some stuff and 
+      - Get 100 points & exp for this!
+  Gui:
+    Id: 379
+    Data: 0
+  Brew:
+    nether_wart:
+      income: 0
+      points: 100.0
+      experience: 100.0
+    redstone:
+      income: 0
+      points: 200.0
+      experience: 200.0
+    glowstone_dust:
+      income: 0
+      points: 10.0
+      experience: 10.0
+    fermented_spider_eye:
+      income: 0
+      points: 3000.0
+      experience: 3000.0
+    gunpowder:
+      income: 0
+      points: 200.0
+      experience: 200.0
+    dragon_breath:
+      income: 0
+      points: 500.0
+      experience: 500.0
+    sugar:
+      income: 0
+      points: 150.0
+      experience: 150.0
+    rabbit_foot:
+      income: 0
+      points: 1000.0
+      experience: 1000.0
+    glistering_melon_slice:
+      income: 0
+      points: 100.0
+      experience: 100.0
+    spider_eye:
+      income: 0
+      points: 1000.0
+      experience: 1000.0
+    magma_cream:
+      income: 0
+      points: 10.0
+      experience: 10.0
+    golden_carrot:
+      income: 0
+      points: 100.0
+      experience: 100.0
+    blaze_powder:
+      income: 0
+      points: 10.0
+      experience: 10.0
+    ghast_tear:
+      income: 0
+      points: 250.0
+      experience: 250.0
+    turtle_helmet:
+      income: 0
+      points: 250.0
+      experience: 250.0
+    phantom_membrane:
+      income: 0
+      points: 250.0
+      experience: 250.0

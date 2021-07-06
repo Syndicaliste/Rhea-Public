@@ -1,0 +1,15 @@
+#Delete backups in a given path based on a retention policy
+
+- name: Collect older backups
+  find:
+    paths: "{{ backup_cull_path }}"
+    age: "{{ backup_retention_time }}"
+    file_type: file
+    patterns: '*.tar.gz'
+  register: outdated_backups
+
+#Need to be in separate file because ansible wont let us do a conditional both per loop iteration for for general loop execution
+- name: Delete older backups
+  include: "tasks/cull-duplicity-sub.yml"
+  when: 
+    - outdated_backups.matched > 0

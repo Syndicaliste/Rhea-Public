@@ -1,0 +1,21 @@
+- name: Create BuildTools directory
+  file:
+    path: "{{ main_folder }}/BuildTools"
+    state: directory
+    mode: 0755
+    owner: "{{ unix_username }}"
+
+- name: Download BuildTools
+  get_url:
+    url: "{{ spigot_url }}"
+    dest: "{{ main_folder }}/BuildTools"
+    mode: 0755
+    owner: "{{ unix_username }}"
+
+- name: Build Spigot
+  command: java -jar BuildTools.jar --rev "{{ mc_version }}"
+  args:
+    chdir: "{{ main_folder }}/BuildTools"
+    creates: spigot-{{ mc_version }}.jar
+  environment:
+    SHELL: /bin/bash

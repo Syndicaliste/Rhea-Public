@@ -1,0 +1,126 @@
+---
+#task to deploy a single shard
+#Expects the following variables:
+
+#full_path
+#shard
+#category_name
+#mc_plugins
+#use_paper
+
+- name: "Include shard specific variables"
+  include_vars:
+    file: "variables/{{shard.name}}_config.yml"
+
+- name: "Create {{ full_path }} directory"
+  file: "path={{ full_path }} state=directory owner={{ unix_username }} mode=0755"
+
+- name: "Create {{ shard.name }} plugins directory"
+  file: "path={{ full_path }}/plugins state=directory owner={{ unix_username }} mode=0755"
+
+#Config precedence is, with later ones overwriting previous ones:
+# - Public category
+# - Private category
+# - Public shard
+# - Private shard
+
+
+#--- Public category templates
+
+- name: "Collect {{ shard.name }} category top level public templates"
+  stat:
+    path: "{{ category_template_folder }}/{{ category_name }}/{{ top_level_template }}.j2"
+  register: cat_pub_top_level_templates
+  with_items: "{{ top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy {{ shard.name }} category top level public templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_path }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ cat_pub_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+
+#--- Private category templates
+
+- name: "Collect {{ shard.name }} category top level private templates"
+  stat:
+    path: "{{ category_template_folder }}/{{ category_name }}/{{ top_level_template }}.j2.priv"
+  register: cat_priv_top_level_templates
+  with_items: "{{ top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy {{ shard.name }} category top level private templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_path }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ cat_priv_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+#--- Public shard templates
+
+- name: "Collect {{ shard.name }} shard top level public templates"
+  stat:
+    path: "{{ shard_template_folder }}/{{ shard.name }}/{{ top_level_template }}.j2"
+  register: shard_pub_top_level_templates
+  with_items: "{{ top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy {{ shard.name }} shard top level private templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_path }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ shard_pub_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+#--- Private shard templates
+
+- name: "Collect {{ shard.name }} shard top level private templates"
+  stat:
+    path: "{{ shard_template_folder }}/{{ shard.name }}/{{ top_level_template }}.j2.priv"
+  register: shard_priv_top_level_templates
+  with_items: "{{ top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy {{ shard.name }} shard top level private templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_path }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ shard_priv_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+#---
+
+- name: Make startup script executable
+  file: dest={{ full_path }}/{{ mc_startup_script }} mode=u+x
+
+- name: Deploy Spigot
+  include: "tasks/update/deploy-spigot.yml mc_server_folder={{ full_path }}"
+  when: not use_paper
+
+- name: Deploy Paper
+  include: "tasks/update/deploy-paper.yml mc_server_folder={{ full_path }}"
+  when: use_paper
+
+- name: "Clean existing Jarfiles"
+  shell: "rm {{ full_path }}/plugins/*.jar"
+  ignore_errors: true #Will error on first deploy, because no jars exist yet
+
+- name: "Deploy {{ shard.name }} plugins"
+  include: "tasks/update/deploy-plugin.yml plugin_name={{ mc_plugin }} target_plugin_dir={{ full_path }}/plugins plugin_jar_folder={{ mc_jar_folder }} category_plugin_config_folder={{ category_template_folder }}/{{ category_name }}/{{ mc_plugin }} shard_plugin_config_folder={{ shard_template_folder }}/{{ shard.name }}/{{ mc_plugin }}"
+  with_items: "{{ mc_plugins }}"
+  loop_control:
+    loop_var: mc_plugin

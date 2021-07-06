@@ -1,0 +1,76 @@
+# This is the default configuration file of BungeeTabListPlus.
+#
+# Since the configuration of the plugin is quite complex you
+# might want to have a look at the wiki from time to time.
+#
+# Wiki: https://github.com/CodeCrafter47/BungeeTabListPlus/wiki
+#  Placeholders: https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Placeholders
+#  Examples: https://github.com/CodeCrafter47/BungeeTabListPlus/wiki/Examples
+#
+showTo: all
+priority: 1  
+
+showHeaderFooter: true
+header: |-
+  &r&4&lDevoted Hell&r - Hardcore Nether Survival - &4${playerset:all_players size} Players Online&r
+  -------------------------------------
+footer: |-
+  -------------------------------------
+  &4&lAdmins:
+  &fRelaxer &4* &fMaxopoly &4* &fProgrammerDan
+  &fDiet_Cola &4* &fMCSPenguin
+  &4Join us at:
+  &fdiscord.gg/qDdruNbWrH
+
+playerSets:
+  all_players: all
+  Lobby: ${player server} == "lobby"
+  Asmodeus: ${player server} == "alpha"
+  Brimstone: ${player server} == "beta"
+  Cerberus: ${player server} == "gamma"
+  Deracinate: ${player server} == "delta"
+
+type: FIXED_SIZE
+size: 80
+
+defaultIcon: colors/dark_gray.png
+defaultPing: 1000
+
+components:
+- !table
+  columns:
+    0:
+      - {text: "&6&nAsmodeus", icon: "colors/gold.png", ping: 0}
+      - !players
+        playerSet: Asmodeus
+        playerComponent: "${player name}"
+        morePlayersComponent: {text: "&7... and &e${other_count} &7others", icon: "colors/gold.png", ping: 0}
+        minSize: 9
+        maxSize: 9
+      - {text: "&6&nLobby", icon: "colors/gold.png", ping: 0}
+      - !players
+        playerSet: Lobby
+        playerComponent: "${player name}"
+        morePlayersComponent: {text: "&7... and &e${other_count} &7others", icon: "colors/gold.png", ping: 0}
+        minSize: 9
+        maxSize: 9
+    1:
+      - {text: "&6&nBrimstone", icon: "colors/gold.png", ping: 0}
+      - !players
+        playerSet: Brimstone
+        playerComponent: "${player name}"
+        morePlayersComponent: {text: "&7... and &e${other_count} &7others", icon: "colors/gold.png", ping: 0}
+    2:
+      - {text: "&6&nCerberus", icon: "colors/gold.png", ping: 0}
+      - !players
+        playerSet: Cerberus
+        playerComponent: "${player name}"
+        morePlayersComponent: {text: "&7... and &e${other_count} &7others", icon: "colors/gold.png", ping: 0}
+    3:
+      - {text: "&6&nDeracinate", icon: "colors/gold.png", ping: 0}
+      - !players
+        playerSet: Deracinate
+        playerComponent: "${player name}"
+        morePlayersComponent: {text: "&7... and &e${other_count} &7others", icon: "colors/gold.png", ping: 0}
+
+customPlaceholders: {}

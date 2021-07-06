@@ -1,0 +1,91 @@
+storage:
+  type: 1
+  mysql:
+    host: '{{ mysql_host }}'
+    dbname: '{{ shard.name }}'
+    port: '{{ mysql_port }}'
+    username: '{{ shard.name }}'
+    password: '{{ mysql_passwords [shard.name]}}'
+    connection_timeout: 5000
+    idle_timeout: 5000
+    max_lifetime: 5000
+    pool_size: 5
+general:
+  suicide_time_seconds: 180                                                                                                                                       
+pearls:
+  autofree_worldborder: false                    
+  free_by_throwing: false                                             
+  free_teleport: true                                                                
+  hotbar_needed: true        
+  decay_interval_human: week                                                   
+  decay_interval_min_human: 10080                                              
+  decay_interval_min: 15                                                       
+  decay_amount: 1 # 1 hp/15 min = 4 hp/hour or 32hp/hour at maximum login streak
+  decay_timeout_min: 86400 #9 days, should be identical to no mana streak
+  start_value: 384 # 12 hours * 32 per hour
+  max_value: 10752 # 32hp/hour * 24hours * 14 days
+  cost_multiplier_days: 270
+  repair_materials:
+    PRISON:
+     mana:
+       material: QUARTZ                                                    
+       repair: 36 #768 health is consumed per day, so 36 allows a player to fill 0.375 prison pearls of equal streak                                                   
+    EXILE:                                              
+      mana:                         
+        material: QUARTZ                                                    
+        repair: 144 #768 health is consumed per day, so 144 allows a player to fill 1.5 exile pearls of equal streak (768*1.5/8)
+  bastion_harm_amount: 2.0                                         
+  upgrade_materials:                                               
+    mana:                                                                    
+      material: QUARTZ                                                     
+      repair: 149
+  allow_pearl_stealing: true
+  allow_summoning: false
+  prison_world: world_nether
+  main_world: world_nether
+help_item:
+  enabled: true
+  item_name: "You've been pearled!"
+  item_text:
+  - "<a>You have been pearled."
+  - ""
+  - "<n>Another player has imprisoned you in an ender pearl."
+  - "<n>Your in-game actions will be limited until you are freed."
+  - "<n>You can type <c>/ep locate to see the location of your pearl."
+damage_log:
+  enabled: true
+  algorithm: 0
+  tick_interval: 20
+  decay_amount: 1.0
+  max_amount: 30.0
+  potion_damge: 6.0
+rules:
+  pearl_radius: 1000
+  ignite: false
+  use_bed: true
+  use_bucket: true
+  fill_bucket: true
+  milk_cows: true
+  use_potions: false
+  drink_brews: true
+  fill_cauldron: true
+  throw_pearl: false
+  pvp: false
+  kill_pets: true
+  kill_mobs: true
+  enchant: true
+  brew: true
+  suicide: true
+  mine_blocks: true
+  collect_xp: true
+  use_anvil: true
+  place_tnt: false
+  chat_local: true
+  create_bastion: true
+  damage_bastion: false
+  enter_bastion: false
+  damage_reinforcement: false
+  place_snitch: false
+  protected_mobs: []
+  disallowed_worlds:
+  spawn_reset: true

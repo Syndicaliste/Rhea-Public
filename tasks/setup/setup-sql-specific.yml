@@ -1,0 +1,14 @@
+#Shard specific mysql setup, should be run once per shard
+
+#Expects the variables:
+# mysql_root_pass
+# mysql_socket_location
+# mysql_shard_user
+# mysql_shard_db_name
+# mysql_shard_password
+
+- name: "Create {{ mysql_shard_db_name }} MariaDB database" 
+  mysql_db: "name={{ mysql_shard_db_name }} state=present login_user=root login_password={{ mysql_root_pass }} login_unix_socket={{ mysql_socket_location }} encoding=latin1"
+
+- name: "Create {{ mysql_shard_user }} MariaDB user"
+  mysql_user: "name={{ mysql_shard_user }} password={{ mysql_shard_password }} login_password={{ mysql_root_pass }} login_unix_socket={{ mysql_socket_location }} priv={{ mysql_shard_db_name }}.*:ALL host={{ mysql_host }} state=present login_user=root"

@@ -1,0 +1,102 @@
+Farmer:
+  fullname: Farmer
+  shortname: Fa
+  description: Earns points & exp farming crops.
+  ChatColour: BLUE
+  chat-display: full
+  max-level: 666
+  leveling-progression-equation: 10*(joblevel*joblevel)+(joblevel*joblevel*4)
+  income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(baseincome*(joblevel-1)*0.01))
+    * ((numjobs-1)*0.05))
+  points-progression-equation: basepoints
+  experience-progression-equation: baseexperience
+  rejoinCooldown: 10
+  maxDailyQuests: 1
+  Quests:
+    '1':
+      Name: Devoted Love Station
+      Objectives:
+      - Breed;Strider;10
+      - Breed;Hoglin;10
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Be a farmer and
+      - Get 100 points & exp for this!
+    '2':
+      Name: Nether Grinding - Blue Editon
+      Objectives:
+      - Break;warped_roots;64
+      - Break;warped_fungus;16
+      - Break;twisting_vines;16
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Be a farmer and
+      - Get 100 points & exp for this!
+    '3':
+      Name: Nether Grinding - Red Edition
+      Objectives:
+      - Break;nether_wart;64
+      - Break;crimson_fungus;16
+      - Break;weeping_vines;16
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Be a farmer and
+      - Get 100 points & exp for this!
+  Gui:
+    Item: wooden_hoe
+  Breed:
+    Chicken:
+      income: 0
+      points: 20.0
+      experience: 20.0
+    Strider:
+      income: 0
+      points: 10.0
+      experience: 10.0
+    Hoglin:
+      income: 0
+      points: 10.0
+      experience: 10.0
+  Break:
+    wheat-7:
+      income: 0
+      points: 5.0
+      experience: 5.0
+    carrots-7:
+      income: 0
+      points: 10.0
+      experience: 10.0
+    potatoes-7:
+      income: 0
+      points: 10.0
+      experience: 10.0
+    brown_mushroom:
+      income: 0
+      points: 2.0
+      experience: 2.0
+    red_mushroom:
+      income: 0
+      points: 2.0
+      experience: 2.0
+    nether_wart-3:
+      income: 0
+      points: 5.0
+      experience: 5.0
+    bamboo:
+      income: 0
+      points: 1.0
+      experience: 1.0
+  Place:
+    bamboo:
+      income: 0
+      points: -1.0
+      experience: -1.0

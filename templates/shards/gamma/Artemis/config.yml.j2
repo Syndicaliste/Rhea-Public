@@ -1,0 +1,22 @@
+debug: false
+
+own_identifier: "{{ shard.name }}"
+
+rabbitmq:
+  host: localhost
+  debug: true
+
+position:
+  x_size: 4096
+  z_size: 4096
+  world: world_nether
+  lower_x_bound: 0
+  lower_z_bound: -8192
+
+random_spawn:
+  first_spawn: false
+  block_blacklist:
+    - MAGMA_BLOCK
+  min_y: 40
+  max_y: 120
+  air_needed: 6

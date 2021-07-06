@@ -1,0 +1,53 @@
+- name: "Create remote backup mount point"
+  file: "path={{ main_folder }}/{{ duplicity_folder }} state=directory"
+
+- name: "Check if remote is already mounted"
+  shell: "grep {{ main_folder }}/{{ duplicity_folder }} /etc/mtab | wc -l"
+  register: mount_count
+
+
+- name: "Mount remote"
+  shell: "curlftpfs {{ remote_backup_user }}:{{ remote_backup_password }}@{{ remote_backup_server }} {{ main_folder }}/{{ duplicity_folder }}"
+  when:
+    - mount_count.stdout|int == 0
+
+- name: "Create remote backup folder"
+  file: "path={{ main_folder }}/{{ duplicity_folder }}/backups/ state=directory"
+
+- name: Get all backups
+  find:
+    paths: "{{ main_folder }}/{{ backups_folder }}/"
+    file_type: file
+    patterns: '*.tar.gz'
+  register: found_backups
+
+#Copy module throws '[Errno 95] Operation not supported' when operating on FTP because it uses symlinks internally
+- name: Copy backups over
+  shell: "cp -n {{ backup_file.path }} {{ main_folder }}/{{ duplicity_folder }}/backups/{{ backup_file.path | basename }}"
+  with_items: "{{ found_backups.files }}"
+  loop_control:
+    loop_var: backup_file
+
+- name: "Cull remote backups"
+  include: "tasks/cull-duplicity.yml backup_cull_path={{ main_folder }}/{{ duplicity_folder }}/backups/ backup_retention_time={{ remote_backup_retention_time }} backup_retention_count={{ remote_backup_retention_count}}"
+
+- name: "Create remote log folder"
+  file: "path={{ main_folder }}/{{ duplicity_folder }}/logs/ state=directory"
+
+- name: Get all logs
+  find:
+    paths: "{{ full_server_folder }}/logs/"
+    file_type: file
+    patterns: '*.log.gz'
+  register: found_logs
+
+- name: Copy logs over
+  shell: "cp -n {{ found_log.path }} {{ main_folder }}/{{ duplicity_folder }}/logs/{{ found_log.path | basename }}"
+  with_items: "{{ found_logs.files }}"
+  loop_control:
+    loop_var: found_log
+
+
+#Good practice in case of machine infections
+- name: "Unmount remote"
+  shell: "fusermount -u {{ main_folder }}/{{ duplicity_folder }}"

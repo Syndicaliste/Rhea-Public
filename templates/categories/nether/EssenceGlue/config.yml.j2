@@ -1,0 +1,75 @@
+debug: false
+
+max_streak: 1
+streak_delay: 20 hours
+streak_grace_period: 1 day
+#Needs to be a multiple of a full minute
+online_for_reward: 30 minutes
+
+give_reward_to_pearled: false
+multiply_pearl_cost: true
+
+login_reward:
+  Souls:
+    material: ENDER_EYE
+    name: Souls
+    amount: 1
+    lore:
+      - Activity reward used in factories
+
+voting_reward:
+  Souls:
+    material: ENDER_EYE
+    name: Souls
+    amount: 1
+    lore:
+      - Activity reward used in factories
+
+voting_sites:
+  planetminecraft:
+    voting_cooldown: 20 hours
+    voting_url: 'https://www.planetminecraft.com/server/devoted---political-pvp/vote/?username=%PLAYER%'
+    internal_key: 'PlanetMinecraft.com'
+    name: 'planetminecraft.com'
+  minecraftmp:
+    voting_cooldown: 20 hours
+    voting_url: 'https://minecraft-mp.com/server/277095/vote/?username=%PLAYER%'
+    internal_key: 'Minecraft-MP.com'
+    name: 'minecraft-mp.com'
+  minecraftserverlist:
+    voting_cooldown: 20 hours
+    voting_url: 'https://minecraft-server-list.com/server/471912/vote/'
+    internal_key: 'MCSL'
+    name: 'minecraft-server-list.com'
+  minecraftserversorg:
+    voting_cooldown: 20 hours
+    voting_url: 'https://minecraftservers.org/vote/298602'
+    internal_key: 'MinecraftServers.org'
+    name: 'minecraftservers.org'
+  minecraftserversbiz:
+    voting_cooldown: 20 hours
+    voting_url: 'https://minecraftservers.biz/servers/149000/#vote_now'
+    internal_key: 'MinecraftServers.biz'
+    name: 'minecraftservers.biz'
+  minecraftserverdotnet:
+    voting_cooldown: 20 hours
+    voting_url: 'https://minecraft-server.net/vote/bonkill/'
+    internal_key: 'Minecraft-Server.net'
+    name: 'Minecraft-Server.net'
+  topgorg:
+    voting_cooldown: 20 hours
+    voting_url: 'https://topg.org/Minecraft/in-622159'
+    internal_key: 'TopG.org'
+    name: 'topg.org'
+database:
+  ==: vg.civcraft.mc.civmodcore.dao.ManagedDatasource
+  plugin: EssenceGlue
+  user: '{{ shard.name }}'
+  password: '{{ mysql_passwords [shard.name]}}'
+  host: '{{ mysql_host }}'
+  port: '{{ mysql_port }}'
+  database: '{{ shard.name }}'
+  poolsize: 5
+  connection_timeout: 10000
+  idle_timeout: 600000
+  max_lifetime: 7200000  

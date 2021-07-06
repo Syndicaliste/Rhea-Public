@@ -1,0 +1,13 @@
+---
+#task to deploy all shard cateogires
+
+#Expects the following variables:
+
+#mc_server_folder General folder the folders for the minecraft servers each will go in
+
+
+- name: "Deploy all shards"
+  include: "tasks/update/deploy-shard-category.yml"
+  with_items: "{{ shard_categories }}"
+  loop_control:
+    loop_var: category_name

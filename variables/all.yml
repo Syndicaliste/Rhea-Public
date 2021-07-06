@@ -1,0 +1,164 @@
+#User name of the OS user who will own the server at /home/username/
+unix_username: "mc"
+
+#Name of the server, folder the servers data is in will be /home/username/name
+servername: "devoted"
+
+#Relative name of the folder the actual MC server live in
+server_folder: "servers"
+
+#Relative name of the folder bungee lives in
+bungee_folder: "bungee"
+
+#Relative name of the folder backups will be in
+backups_folder: "backups"
+
+#Relative name of the folder zeus will be in
+zeus_folder: "zeus"
+
+
+shard_categories:
+ - nether
+ - starter
+ - non_starter
+ - lobby_cat
+
+#Make sure to also edit the server list in bungees config.yml when you add new servers here
+
+shards:
+ - { name: 'alpha', categories: ['nether','starter'], port: 'x', nice_name: 'Asmodeus', limit_monster: '80', ticks_monster: '200', lagg_mob: '5000', bastion: '3.35', bricks: '40', iron: '200', gold: '400', diamond: '1500', netherite: '4000'}
+ - { name: 'beta', categories: ['nether','non_starter'], port: 'x', nice_name: 'Brimstone', limit_monster: '100', ticks_monster: '100', lagg_mob: '6000', bastion: '3.35', bricks: '30', iron: '175', gold: '350', diamond: '1400', netherite: '3666'}
+ - { name: 'gamma', categories: ['nether','non_starter'], port: 'x', nice_name: 'Cerberus', limit_monster: '120', ticks_monster: '50', lagg_mob: '7000', bastion: '3.35', bricks: '20', iron: '150', gold: '300', diamond: '1300', netherite: '3333'}
+ - { name: 'delta', categories: ['nether','non_starter'], port: 'x', nice_name: 'Deracinate', limit_monster: '140', ticks_monster: '25', lagg_mob: '8000', bastion: '3.35', bricks: '10', iron: '125', gold: '250', diamond: '1200', netherite: '3000'}
+ - { name: 'lobby', categories: ['lobby_cat'], port: 'x'}
+
+#Port used to access the server from the outside, 25565 by default
+bungee_port: 25565
+
+#How much memory is used by bungee
+bungee_mem: 1024M
+
+#Use PaperMC instead of Spigot?
+use_paper: true
+
+#Mysql socket location. You can find the correct path in '/etc/my.cnf' under [mysqld] --> socket
+mysql_socket_location: "/var/run/mysqld/mysqld.sock"
+
+
+#--------------------------------------
+#Unless you know what you are doing you probably don't want to touch anything below this line
+#--------------------------------------
+
+host: localhost
+#Folder containg all plugin jars
+jar_files: jarfiles
+#Folder containing the configurations and templates files
+templates: templates
+zeus: zeus
+#Folder holding category templates within the general template folder
+category_templates: categories
+#Folder holding shard specific templates within the general template folder
+shard_templates: shards
+#Folder holding bungee specific templates within the general template folder
+bungee_templates: bungee
+#Folder holding zeus specific templates within the general template folder
+zeus_templates: zeus
+
+category_template_folder: "{{ templates }}/{{ category_templates }}"
+shard_template_folder: "{{ templates }}/{{ shard_templates }}"
+bungee_template_folder: "{{ templates }}/{{ bungee_templates}}"
+zeus_template_folder: "{{ templates }}/{{ zeus_templates}}"
+
+mc_jar_folder: "{{ jar_files }}/mc"
+bungee_jar_folder: "{{ jar_files }}/bungee"
+zeus_jar_folder: "{{ jar_files }}/zeus"
+
+#Public server files not specific to a plugin, templates for these are under templates/public/
+top_level_templates:
+ - bukkit.yml
+ - commands.yml
+ - start.sh
+ - eula.txt
+ - help.yml
+ - ops.json
+ - server.properties
+ - spigot.yml
+ - paper.yml
+ - wepif.yml
+
+#Public bungee files not specific to a plugin, templates for these are under templates/public/
+bungee_top_level_templates:
+ - config.yml
+ - waterfall.yml
+ - start.sh
+ - server-icon.png
+
+#Plugins to deploy, including jar and config files. Plugins may be removed or commented out of this list without issue
+bungee_plugins:
+ - Apollo
+ - BungeeCommandBridge
+ - BungeeGuard
+ - BungeeTabListPlus
+ - LuckPerms
+ - NuVotifier
+ - Spark
+ - ViaBackwards
+ - ViaVersion
+ - Geyser
+
+zeus_top_level_templates:
+ - config.json
+ - start.sh
+
+zeus_plugins:
+ - BanRod
+ - NameLayer
+
+
+#Minecraft version
+mc_version: "1.16.4"
+#Version of PaperMC to use
+paper_version: "403"
+#Raw Bungee version, used in the URL of Waterfall downloads
+raw_bungee_version: 1.16
+#Specific waterfall version to use
+waterfall_version: 389
+#URL to pull BuildTools from for building Spigot
+spigot_url: "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
+#URL to pull Paper build from
+paper_url: "https://papermc.io/api/v2/projects/paper/versions/{{ mc_version }}/builds/{{ paper_version }}/downloads/paper-{{ mc_version }}-{{ paper_version }}.jar"
+#URL to pull bungeecord/waterfall build from
+bungee_url: "https://papermc.io/api/v2/projects/waterfall/versions/{{ raw_bungee_version }}/builds/{{ waterfall_version }}/downloads/waterfall-{{ raw_bungee_version }}-{{ waterfall_version }}.jar"#Name of the final server jar put into the server folder
+mc_jar: "minecraft"
+#Name of the bungee jar to put into the bungee folder
+bungee_jar: "Waterfall"
+#Name of the zeus jar to put into the zeus folder
+zeus_jar: "Zeus"
+#Minecraft startup bash script file name
+mc_startup_script: "start.sh"
+#Bungee startup bash script file name
+bungee_startup_script: "start.sh"
+#Zeus startup bash script file name
+zeus_startup_script: "start.sh"
+#Name of the minecraft server console tab in byobu
+byobu_minecraft_tab: "server"
+#Name of the bungee console tab in byobu
+byobu_bungee_tab: "bungee"
+sql_file: "{{ main_folder }}/{{ backups_folder }}/{{ servername }}.sql"
+duplicity_folder: "remote_backups"
+do_remote_backup: true
+
+#Backups older than this which we were not made on the first of the month will be deleted locally
+local_backup_retention_time: 7d
+#Minimum amount of backups to keep locally
+local_backup_retention_count: 7
+#Backups older than this which we were not made on the first of the month will be deleted on the remote backup
+remote_backup_retention_time: 14d
+#Minimum amount of backups to keep remote
+remote_backup_retention_count: 14
+
+#Folder most of the magic is happening in as a variable for convenience
+main_folder: "/home/{{ unix_username }}/{{ servername }}"
+full_servers_folder: "{{ main_folder }}/{{ server_folder }}"
+full_bungee_folder: "{{ main_folder }}/{{ bungee_folder }}"
+full_zeus_folder: "{{ main_folder }}/{{ zeus_folder }}"

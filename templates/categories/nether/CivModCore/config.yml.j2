@@ -1,0 +1,13 @@
+database:
+  ==: vg.civcraft.mc.civmodcore.dao.ManagedDatasource
+  plugin: CivModCore
+  user: '{{ shard.name }}'
+  password: '{{ mysql_passwords [shard.name]}}'
+  host: '{{ mysql_host }}'
+  port: '{{ mysql_port }}'
+  database: '{{ shard.name }}'
+  poolsize: 5
+  connection_timeout: 10000
+  idle_timeout: 600000
+  max_lifetime: 7200000  
+scoreboardHeader: "&4&lDevoted Hell"

@@ -1,0 +1,50 @@
+---
+#Recursively deploys a folder of configurations
+
+#Arguments expected:
+
+#src_config_path
+#target_config_path
+
+- name: Find all valid public config files
+  find:
+    paths: "{{ src_config_path }}"
+    recurse: yes
+    file_type: file
+    patterns: "^.*\\.j2$"
+    use_regex: yes
+  register: local_config_files
+
+- name: Find all valid private config files
+  find:
+    paths: "{{ src_config_path }}"
+    recurse: yes
+    file_type: file
+    patterns: "^.*\\.j2\\.priv$"
+    use_regex: yes
+  register: local_priv_config_files
+
+- name: "Ensure {{ src_config_path }} public config folders exist"
+  file: "path={{ target_config_path }}/{{ local_config_file.path | relpath(src_config_path) | regex_replace((local_config_file.path | basename),'')}} state=directory owner={{ unix_username }} mode=0755"
+  with_items: "{{ local_config_files.files }}"
+  loop_control:
+    loop_var: local_config_file
+
+- name: "Ensure {{ src_config_path }} private config folders exist"
+  file: "path={{ target_config_path }}/{{ local_priv_config_file.path | relpath(src_config_path) | regex_replace((local_priv_config_file.path | basename),'')}} state=directory owner={{ unix_username }} mode=0755"
+  with_items: "{{ local_priv_config_files.files }}"
+  loop_control:
+    loop_var: local_priv_config_file
+
+
+- name: "Deploy {{ src_config_path }} public configs"
+  template: src={{ local_config_file.path }} dest={{ target_config_path }}/{{ local_config_file.path | relpath(src_config_path) | regex_replace('\\.j2', '')}} owner={{ unix_username }} mode="u=rw,g=r,o=r"
+  with_items: "{{ local_config_files.files }}"
+  loop_control:
+    loop_var: local_config_file
+
+- name: "Deploy {{ src_config_path }} private configs"
+  template: src={{ local_priv_config_file.path }} dest={{ target_config_path }}/{{ local_priv_config_file.path | relpath(src_config_path) | regex_replace('\\.j2\\.priv', '') }} owner={{ unix_username }} mode="u=rw,g=r,o=r"
+  with_items: "{{ local_priv_config_files.files }}"
+  loop_control:
+    loop_var: local_priv_config_file

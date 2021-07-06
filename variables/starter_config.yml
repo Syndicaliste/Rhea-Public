@@ -1,0 +1,42 @@
+mc_plugins:
+ - AAC
+ - AACPlus
+ - Artemis
+ - Bastion
+ - BetterChairs
+ - Brewery
+ - BungeeGuard
+ - BungeeTabListPlusBukkitBridge
+ - Citadel
+ - CivModCore
+ - ClearLag
+# - CombatTagPlus
+ - CraftEnhance
+ - EssenceGlue
+ - FactoryMod
+ - Finale
+ - HiddenOre
+ - HolographicDisplays
+ - ItemExchange
+ - Jobs
+ - JukeAlert
+ - KiraBukkitGateway
+ - LuckPerms
+ - NameColors
+ - NameLayer
+ - Orebfuscator
+ - ProtocolLib
+ - RailSwitch
+ - RealisticBiomes
+ - SimpleAdminHacks
+ - Spark
+ - SuperVanish
+ - TAB
+ - TallNether
+ - Towny
+ - Vault
+ - Votifier #This is actually NuVotifier
+ - WordBank
+ - WorldBorder
+ - WorldEdit
+

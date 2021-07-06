@@ -1,0 +1,13 @@
+#Downloads paper
+
+#Expects the following variables:
+
+#mc_server_folder
+
+- name: Download Paper
+  get_url:
+    url: "{{ paper_url }}"
+    dest: "{{ mc_server_folder }}/{{ mc_jar }}.jar"
+    mode: 0755
+    owner: "{{ unix_username }}"
+    force: true

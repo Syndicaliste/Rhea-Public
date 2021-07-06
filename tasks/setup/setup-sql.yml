@@ -1,0 +1,35 @@
+#General database setup which should only need to be run once per machine
+- name: Create `/root/.my.cnf`  with root password credentials
+  template:
+    src:  my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    mode: 0600
+  become: yes
+
+- name: Create `/home/{{ unix_username }}/.my.cnf`  with root password credentials
+  template:
+    src:  my.cnf.j2
+    dest: /home/{{ unix_username }}/.my.cnf
+    owner: root
+    mode: 0600
+  become: yes
+
+- name: Restart MariaDB and ensure it starts on boot
+  service:
+    name: mariadb
+#    state: restarted
+    enabled: yes
+  become: yes
+
+- name: "Create global MariaDB database" 
+  mysql_db: "name={{ global_mysql_database }} state=present login_user=root login_password={{ mysql_root_pass }} login_unix_socket={{ mysql_socket_location }} encoding=latin1"
+
+- name: "Create global MariaDB user"
+  mysql_user: "name={{ global_mysql_user }} password={{ global_mysql_password }} login_password={{ mysql_root_pass }} login_unix_socket={{ mysql_socket_location }} priv={{ global_mysql_database }}.*:ALL host={{ mysql_host }} state=present login_user=root"
+
+- name: "Deploy {{ shard.name }} database"
+  include: "tasks/setup/setup-sql-specific.yml mysql_shard_user={{ shard.name }} mysql_shard_db_name={{ shard.name }} mysql_shard_password={{ mysql_passwords [shard.name]}}"
+  loop: "{{ shards }}"
+  loop_control:
+    loop_var: shard

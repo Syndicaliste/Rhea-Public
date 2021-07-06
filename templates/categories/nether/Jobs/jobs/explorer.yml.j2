@@ -1,0 +1,50 @@
+Explorer:
+  fullname: Explorer
+  shortname: Ex
+  description: Earns money from exploring map.
+  ChatColour: RED
+  chat-display: full
+  max-level: 666
+  leveling-progression-equation: 10*(joblevel*joblevel)+(joblevel*joblevel*4)
+  income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(baseincome*(joblevel-1)*0.01))
+    * ((numjobs-1)*0.05))
+  points-progression-equation: basepoints
+  experience-progression-equation: baseexperience
+  rejoinCooldown: 10
+  maxDailyQuests: 1
+  Quests:
+    '1':
+      Name: Galileo
+      Objectives:
+      - Explore;1;10
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Visit 10 unexplored chunks and
+      - Get 100 points & exp for this!
+  Gui:
+    Id: 301
+    Data: 0
+  Explore:
+    '1':
+      income: 0
+      points: 25.0
+      experience: 25.0
+    '2':
+      income: 0
+      points: 20.0
+      experience: 20.0
+    '3':
+      income: 0
+      points: 15.0
+      experience: 15.0
+    '4':
+      income: 0
+      points: 10.0
+      experience: 10.0
+    '5':
+      income: 0
+      points: 10.0
+      experience: 10.0

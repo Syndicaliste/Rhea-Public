@@ -1,0 +1,28 @@
+debug: false
+
+own_identifier: "{{ shard.name }}"
+
+rabbitmq:
+  host: localhost
+  debug: true
+
+position:
+  x_size: 4096
+  z_size: 4096
+  world: world_nether
+  lower_x_bound: 0
+  lower_z_bound: 0
+
+random_spawn:
+  first_spawn: true
+  block_blacklist:
+    - MAGMA_BLOCK
+    - BASALT
+    - BLACKSTONE
+    - NETHERRACK
+    - SOUL_SAND
+    - SOUL_SOIL
+    - GRAVEL
+  min_y: 40
+  max_y: 120
+  air_needed: 6

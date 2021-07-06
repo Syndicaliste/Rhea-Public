@@ -1,0 +1,116 @@
+version: 1
+general:
+  updateOnBlockDamage: true
+  bypassNotification: true
+  initialRadius: 1
+  updateRadius: 2
+  proximityHiderRunnerSize: 4
+cache:
+  enabled: true
+  baseDirectory: 'orebfuscator_cache/'
+  maximumOpenRegionFiles: 256
+  deleteRegionFilesAfterAccess: 172800000‬
+  maximumSize: 4096
+  expireAfterAccess: 30000
+world:
+  - worlds:
+      - world_nether
+    enabled: true
+    darknessBlocks:
+      - chest
+      - ender_chest
+      - trapped_chest
+      - spawner
+    hiddenBlocks:
+      - chest
+      - ender_chest
+      - trapped_chest
+      - barrel
+      - emerald_ore
+      - diamond_ore
+      - gold_ore
+      - iron_ore
+      - coal_ore
+      - lapis_ore
+      - redstone_ore
+      - stone
+      - clay
+      - shulker_box
+      - white_shulker_box
+      - orange_shulker_box
+      - magenta_shulker_box
+      - light_blue_shulker_box
+      - yellow_shulker_box
+      - lime_shulker_box
+      - pink_shulker_box
+      - gray_shulker_box
+      - light_gray_shulker_box
+      - cyan_shulker_box
+      - purple_shulker_box
+      - blue_shulker_box
+      - brown_shulker_box
+      - green_shulker_box
+      - red_shulker_box
+      - black_shulker_box
+      - minecraft:nether_quartz_ore
+      - minecraft:respawn_anchor
+      - minecraft:nether_gold_ore
+    randomBlocks:
+      netherrack: 1
+      
+proximity:
+  - worlds:
+      - world_nether
+      - world_the_end
+    enabled: true
+    distance: 7
+    useFastGazeCheck: true
+    hiddenBlocks:
+      diamond_ore: {}
+      emerald_ore: {}
+      chest: {}
+      ender_chest: {}
+      trapped_chest: {}
+      barrel: {}
+      anvil: {}
+      crafting_table: {}
+      dispenser: {}
+      enchanting_table: {}
+      furnace: {}
+      blast_furnace: {}
+      cartography_table: {}
+      fletching_table: {}
+      grindstone: {}
+      composter: {}
+      lectern: {}
+      loom: {}
+      smithing_table: {}
+      smoker: {}
+      stonecutter: {}
+      hopper: {}
+      spawner: {}
+      shulker_box: {}
+      white_shulker_box: {}
+      orange_shulker_box: {}
+      magenta_shulker_box: {}
+      light_blue_shulker_box: {}
+      yellow_shulker_box: {}
+      lime_shulker_box: {}
+      pink_shulker_box: {}
+      gray_shulker_box: {}
+      light_gray_shulker_box: {}
+      cyan_shulker_box: {}
+      purple_shulker_box: {}
+      blue_shulker_box: {}
+      brown_shulker_box: {}
+      green_shulker_box: {}
+      red_shulker_box: {}
+      black_shulker_box: {}
+      bee_nest: {}
+      beehive: {}
+      sponge: {}
+      note_block: {}
+      jukebox: {}
+      minecraft:respawn_anchor: {}
+    randomBlocks:
+      netherrack: 1 

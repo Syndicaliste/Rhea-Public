@@ -1,0 +1,533 @@
+prefix: 'You found a hidden ore!!'
+alert_user: true
+list_drops: true
+debug: false
+ignore_silktouch: true
+map_save_active: false
+
+transform_attempt_multiplier: 3
+tools: {}
+blocks:
+   netherrack:
+      allTypes: false
+      materials:
+         netherrack:
+            material: NETHERRACK
+         basalt:
+            material: BASALT
+         blackstone:
+            material: BLACKSTONE
+         magmablock:
+            material: MAGMA_BLOCK
+      dropMultiple: false
+      dropList:
+      - coal_ore_transform
+      - iron_ore_transform
+      - redstone_ore_transform
+      - gold_ore_transform
+      - debris_transform
+      - diamond_ore
+      - debris_low
+      - coal_ore_all
+      - iron_ore_all
+      - redstone_ore_all
+      - gold_ore_all
+      - diamond_ore_all
+      - coal_N1
+      - iron_N1
+      - redstone_N1
+      - gold_N1
+      - debris_N1
+      - diamond_N1
+      - coal_N2
+      - iron_N2
+      - redstone_N2
+      - gold_N2
+      - debris_N2
+      - diamond_N2
+      - coal_N3
+      - iron_N3
+      - redstone_N3
+      - gold_N3
+      - debris_N3
+      - diamond_N3
+   soul:
+      materials:
+         soulsand:
+            material: SOUL_SAND
+         soulsoil:
+            material: SOUL_SOIL
+      dropMultiple: false
+      dropList:
+      - grass_transform
+      - glowstone_transform
+      - bone_transform
+drops:
+   grass_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: GRASS
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.001
+      minAmount: 1
+      maxAmount: 3
+      transformIfAble: true
+   glowstone_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: GLOWSTONE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.002
+      minAmount: 2
+      maxAmount: 4
+      transformIfAble: true
+   bone_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: BONE_BLOCK
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.002
+      minAmount: 1
+      maxAmount: 2
+      transformIfAble: true
+   coal_ore_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: COAL_ORE
+         v: 1
+         amount: 1
+      minY: 170
+      maxY: 256
+      chance: 0.01
+      minAmount: 2
+      maxAmount: 9
+      transformIfAble: true
+   iron_ore_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: IRON_ORE
+         v: 1
+         amount: 1
+      minY: 150
+      maxY: 183
+      chance: 0.005
+      minAmount: 2
+      maxAmount: 7
+      transformIfAble: true
+   gold_ore_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: NETHER_GOLD_ORE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 23
+      chance: 0.0042
+      minAmount: 2
+      maxAmount: 7
+      transformIfAble: true
+   redstone_ore_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: REDSTONE_ORE
+         v: 1
+         amount: 1
+      minY: 170
+      maxY: 176
+      chance: 0.0003
+      minAmount: 2
+      maxAmount: 3
+      transformIfAble: true
+   debris_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: ANCIENT_DEBRIS
+         v: 1
+         amount: 1
+      minY: 17
+      maxY: 29
+      chance: 0.0004
+      minAmount: 2
+      maxAmount: 7
+      transformIfAble: true
+   debris_low:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: ANCIENT_DEBRIS
+         v: 1
+         amount: 1
+      minY: 8
+      maxY: 220
+      chance: 0.0001
+      minAmount: 1
+      maxAmount: 1
+      transformIfAble: true
+   diamond_ore:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: DIAMOND_ORE
+         v: 1
+         amount: 1
+      minY: 28
+      maxY: 54
+      chance: 0.0006
+      minAmount: 2
+      maxAmount: 9
+      transformIfAble: true
+   coal_ore_all:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: COAL_ORE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.003
+      minAmount: 1
+      maxAmount: 1
+      transformIfAble: true
+   iron_ore_all:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: IRON_ORE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.001
+      minAmount: 1
+      maxAmount: 1
+      transformIfAble: true
+   gold_ore_all:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: NETHER_GOLD_ORE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.001
+      minAmount: 1
+      maxAmount: 1
+      transformIfAble: true
+   redstone_ore_all:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: REDSTONE_ORE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.0006
+      minAmount: 1
+      maxAmount: 1
+      transformIfAble: true
+   diamond_ore_all:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: DIAMOND_ORE
+         v: 1
+         amount: 1
+      minY: 1
+      maxY: 256
+      chance: 0.0005
+      minAmount: 1
+      maxAmount: 1
+      transformIfAble: true
+   coal_N1:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Coal Mining Note 1D: Minimum Y level is 170'
+      minY: 1
+      maxY: 256
+      chance: 0.00001
+      minAmount: 1
+      maxAmount: 1
+   iron_N1:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Iron Mining Note 1D: Minimum Y level is 150'
+      minY: 1
+      maxY: 256
+      chance: 0.000005
+      minAmount: 1
+      maxAmount: 1
+   gold_N1:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Gold Mining Note 1D: Minimum Y level is 1'
+      minY: 1
+      maxY: 256
+      chance: 0.00001
+      minAmount: 1
+      maxAmount: 1
+   redstone_N1:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Redstone Mining Note 1D: Minimum Y level is 170'
+      minY: 1
+      maxY: 256
+      chance: 0.000004
+      minAmount: 1
+      maxAmount: 1
+   debris_N1:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Debris Mining Note 1D: Minimum Y level is 17'
+      minY: 1
+      maxY: 256
+      chance: 0.000002
+      minAmount: 1
+      maxAmount: 1
+   diamond_N1:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Diamond Mining Note 1D: Minimum Y level is 24'
+      minY: 1
+      maxY: 256
+      chance: 0.000003
+      minAmount: 1
+      maxAmount: 1
+   coal_N2:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Coal Mining Note 2D: Maximum Y level is 256'
+      minY: 1
+      maxY: 256
+      chance: 0.00001
+      minAmount: 1
+      maxAmount: 1
+   iron_N2:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Iron Mining Note 2D: Maximum Y level is 183'
+      minY: 1
+      maxY: 256
+      chance: 0.000005
+      minAmount: 1
+      maxAmount: 1
+   gold_N2:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Gold Mining Note 2D: Maximum Y level is 23'
+      minY: 1
+      maxY: 256
+      chance: 0.00001
+      minAmount: 1
+      maxAmount: 1
+   redstone_N2:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Redstone Mining Note 2D: Maximum Y level is 176'
+      minY: 1
+      maxY: 256
+      chance: 0.000003
+      minAmount: 1
+      maxAmount: 1
+   debris_N2:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Debris Mining Note 2D: Maximum Y level is 29'
+      minY: 1
+      maxY: 256
+      chance: 0.000002
+      minAmount: 1
+      maxAmount: 1
+   diamond_N2:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Diamond Mining Note 2D: Maximum Y level is 54'
+      minY: 1
+      maxY: 256
+      chance: 0.000003
+      minAmount: 1
+      maxAmount: 1
+   coal_N3:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Coal Mining Note 3D: Chance is 1/100'
+      minY: 1
+      maxY: 256
+      chance: 0.00001
+      minAmount: 1
+      maxAmount: 1
+   iron_N3:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Iron Mining Note 3D: Chance is 1/200'
+      minY: 1
+      maxY: 256
+      chance: 0.000005
+      minAmount: 1
+      maxAmount: 1
+   gold_N3:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Gold Mining Note 3D: Chance is 1/235'
+      minY: 1
+      maxY: 256
+      chance: 0.00001
+      minAmount: 1
+      maxAmount: 1
+   redstone_N3:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Redstone Mining Note 3D: Chance is 1/3333'
+      minY: 1
+      maxY: 256
+      chance: 0.000005
+      minAmount: 1
+      maxAmount: 1
+   debris_N3:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Debris Mining Note 3D: Chance is 1/2500'
+      minY: 1
+      maxY: 256
+      chance: 0.000002
+      minAmount: 1
+      maxAmount: 1
+   diamond_N3:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PAPER
+         v: 1
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            lore:
+            - 'Diamond Mining Note 3D: Chance is 1/1666'
+      minY: 1
+      maxY: 256
+      chance: 0.000003
+      minAmount: 1
+      maxAmount: 1

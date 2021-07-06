@@ -1,0 +1,2 @@
+lower_memory_bound: 512M
+upper_memory_bound: 4G

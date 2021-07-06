@@ -1,0 +1,62 @@
+---
+#task to deploy all of Zeus
+
+
+- name: "Create Zeus directory"
+  file: "path={{ full_zeus_folder }} state=directory owner={{ unix_username }} mode=0755"
+
+- name: "Create Zeus Plugins Directory"
+  file: "path={{ full_zeus_folder }}/plugins state=directory owner={{ unix_username }} mode=0755"
+
+- name: "Copy Zeus jarfile"
+  copy: src={{ zeus_main_jar }} dest={{ full_zeus_folder }}/{{ zeus_jar }}.jar owner={{ unix_username }} mode="u=rw,g=r,o=r"
+  with_fileglob: "{{ zeus_jar_folder }}/{{ zeus_jar }}-*.jar"
+  loop_control:
+    loop_var: zeus_main_jar
+
+- name: "Collect Zeus top level public templates"
+  stat:
+    path: "{{ zeus_template_folder }}/{{ top_level_template }}.j2"
+  register: cat_pub_top_level_templates
+  with_items: "{{ zeus_top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy Zeus top level public templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_zeus_folder }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ cat_pub_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+- name: "Collect Zeus top level private templates"
+  stat:
+    path: "{{ zeus_template_folder }}/{{ top_level_template }}.j2.priv"
+  register: cat_priv_top_level_templates
+  with_items: "{{ zeus_top_level_templates }}"
+  loop_control:
+    loop_var: top_level_template
+  ignore_errors: True
+
+- name: "Copy Zeus top level private templates"
+  template: "src={{ cat_pub_top_level_template.stat.path }} dest={{ full_zeus_folder }}/{{ cat_pub_top_level_template.top_level_template }} \
+             owner={{ unix_username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ cat_priv_top_level_templates.results }}"
+  when: cat_pub_top_level_template.stat.exists == True
+  loop_control:
+    loop_var: cat_pub_top_level_template
+
+- name: Make startup script executable
+  file: dest={{ full_zeus_folder }}/{{ zeus_startup_script }} mode=u+x
+
+- name: "Clean existing Jarfiles"
+  shell: "rm {{ full_zeus_folder }}/plugins/*.jar"
+  ignore_errors: true #Will error on first deploy, because no jars exist yet
+
+- name: "Deploy Zeus plugins"
+  include: "tasks/update/deploy-plugin.yml plugin_name={{ zeus_plugin }} target_plugin_dir={{ full_zeus_folder }}/plugins plugin_jar_folder={{ zeus_jar_folder }} shard_plugin_config_folder={{ zeus_template_folder }}/{{ zeus_plugin }}"
+  with_items: "{{ zeus_plugins }}"
+  loop_control:
+    loop_var: zeus_plugin

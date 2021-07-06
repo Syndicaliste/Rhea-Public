@@ -1,0 +1,202 @@
+Excavator:
+  fullname: Excavator
+  shortname: Ex
+  description: Earns points mining & digging minerals and ores.
+  ChatColour: GOLD
+  chat-display: full
+  max-level: 666
+  leveling-progression-equation: 10*(joblevel*joblevel)+(joblevel*joblevel*4)
+  income-progression-equation: baseincome+(baseincome*(joblevel-1)*0.01)-((baseincome+(baseincome*(joblevel-1)*0.01))
+    * ((numjobs-1)*0.05))
+  points-progression-equation: basepoints
+  experience-progression-equation: baseexperience
+  rejoinCooldown: 10
+  maxDailyQuests: 1
+  Quests:
+    '1':
+      Name: Hell Excavator
+      Objectives:
+      - Break;netherrack;50
+      - Break;basalt;50
+      - Break;blackstone;50
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Break blocks and get money
+      - Get 100 points & exp for this!
+    '2':
+      Name: Hell Mole
+      Objectives:
+      - Break;soul_sand;50
+      - Break;soul_soil;50
+      - Break;gravel;50
+      RewardCommands:
+      - jobs editpoints add [playerName] 100
+      - jobs exp add [playerName] 100
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Dig blocks and
+      - Get 100 points & exp for this!
+    '3':
+      Name: Hot Stuff
+      Objectives:
+      - Break;magma_block;50
+      RewardCommands:
+      - jobs editpoints add [playerName] 150
+      - jobs exp add [playerName] 150
+      - msg [playerName] Completed quest!
+      RewardDesc:
+      - Dig blocks and
+      - Get 150 points & exp for this!
+  Gui:
+    Id: 270
+    Data: 0
+  Break:
+    coal_ore:
+      income: 0
+      points: 2.0
+      experience: 2.0
+    redstone_ore:
+      income: 0.0
+      points: 20.0
+      experience: 20.0
+    iron_ore:
+      income: 0.0
+      points: 10.0
+      experience: 10.0
+    nether_gold_ore:
+      income: 0
+      points: 5.0
+      experience: 5.0
+    diamond_ore:
+      income: 0
+      points: 50.0
+      experience: 50.0
+    nether_quartz_ore:
+      income: 0.0
+      points: 3.0
+      experience: 3.0
+    obsidian:
+      income: 0
+      points: 20.0
+      experience: 20.0
+    nether_bricks:
+      income: 0.0
+      points: 1.0
+      experience: 1.0
+    nether_brick_stairs:
+      income: 0
+      points: 1.0
+      experience: 1.0
+    nether_brick_fence:
+      income: 0
+      points: 1.0
+      experience: 1.0
+    netherrack:
+      income: 0.0
+      points: 1.0
+      experience: 1.0
+    gravel:
+      income: 0.0
+      points: 1.0
+      experience: 1.0
+    magma_block:
+      income: 0.0
+      points: 1.0
+      experience: 1.0
+    grass_block:
+      income: 0.0
+      points: 2.0
+      experience: 2.0
+    soul_soil:
+      income: 0.0
+      points: 1.0
+      experience: 1.0
+    soul_sand:
+      income: 0
+      points: 1.0
+      experience: 1.0
+    basalt:
+      income: 0
+      points: 1.0
+      experience: 1.0
+    blackstone:
+      income: 0
+      points: 1.0
+      experience: 1.0
+    ancient_debris:
+      income: 0
+      points: 100.0
+      experience: 100.0
+  Place:
+    coal_ore:
+      income: 0.0
+      points: -2.0
+      experience: -2.0
+    redstone_ore:
+      income: 0.0
+      points: -20.0
+      experience: -20.0
+    iron_ore:
+      income: 0.0
+      points: -10.0
+      experience: -10.0
+    nether_gold_ore:
+      income: 0.0
+      points: -5.0
+      experience: -5.0
+    diamond_ore:
+      income: 0.0
+      points: -50.0
+      experience: -50.0
+    nether_quartz_ore:
+      income: 0.0
+      points: -3.0
+      experience: -3.0
+    ancient_debris:
+      income: 0.0
+      points: -100.0
+      experience: -100.0
+  # Limit item use to jobs level
+  limitedItems:
+    # Just name, don't have any impact
+    firstOne:
+      # Tool/Weapon id. Works for any interact action.
+      id: 278
+
+      # Level of this job player can start using this item
+      level: 5
+    secondOne:
+      # Tool/Weapon id. Works for any interact action.
+      id: 49
+
+      # Level of this job player can start using this item
+      level: 15
+  conditions:
+    # Condition name, irrelevant, you can write anything in here
+    first:
+      requires:
+      - p:devoted.onebgain
+      command: 
+      - lp user [player] permission unset devoted.onebstore
+      - msg [player] [Jobs] Unlocked a new item in the /jobs shop!
+      - lp user [player] permission set devoted.twobstore      
+
+  # Commands executed when player reached level
+  commands:
+    # command name, just to have better idea what this do
+    oneb:
+      # Command its self, this will be executed from console, so all commands should work
+      # Possible variables are: [player] [jobname] [oldlevel] [newlevel]
+      command: 
+      - lp user [player] permission set devoted.onebstore
+      - msg [player] [Jobs] Unlocked a new item in the /jobs shop!
+
+      # When to execute this command first time
+      levelFrom: 10
+
+      # Until when to do this command
+      # This can be set to same level as levelFrom, so this command will be executed only once
+      levelUntil: 10

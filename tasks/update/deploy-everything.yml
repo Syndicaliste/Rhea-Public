@@ -1,0 +1,10 @@
+---
+
+- name: "Deploy all shards"
+  include: "tasks/update/deploy-all-shards.yml"
+
+- name: "Deploy Bungee"
+  include: "tasks/update/deploy-bungee.yml"
+
+- name: "Deploy Zeus"
+  include: "tasks/update/deploy-zeus.yml"

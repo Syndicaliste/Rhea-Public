@@ -1,0 +1,49 @@
+world:
+  randomspawnon:
+    - firstjoin
+    - respawn
+  # - bedrespawn
+  spawnpointson:
+    - firstjoin
+    - newplayer
+  keeprandomspawns: false
+  newplayertime: 3000
+  spawnarea:
+    type: "square"
+    radius: 4000
+  spawnbyplayer: false
+  spawnbyplayerarea:
+    exclusionradius: 300
+    radius: 900
+  spawnblacklist:
+    - "WATER" # 8, 9 # water
+    - "LAVA" # 10, 11 # lava
+    # - 18 # leaves
+    - "FIRE" # 51 # fire
+    - "CACTUS" # 81 # cactus
+    - "OBSIDIAN" # 49 # obsidian - don't spawn in military infrastructure
+    - "BLACK_CARPET" # 171 # carpet - don't spawn in military infrastructure
+    - "BLUE_CARPET"
+    - "BROWN_CARPET"
+    - "CYAN_CARPET"
+    - "GRAY_CARPET"
+    - "GREEN_CARPET"
+    - "LIGHT_BLUE_CARPET"
+    - "LIGHT_GRAY_CARPET"
+    - "LIME_CARPET"
+    - "MAGENTA_CARPET"
+    - "ORANGE_CARPET"
+    - "PINK_CARPET"
+    - "PURPLE_CARPET"
+    - "RED_CARPET"
+    - "WHITE_CARPET"
+    - "YELLOW_CARPET"
+  spawnpoints:
+    ExamplePoint: #Kept this so we know what the config options but we need to add some
+      x: 2048
+      y: 999 # overridden in code, but must be set
+      z: 2048
+      nearby: true # require another player nearby?
+      checkradius: 700 # require another player closer than this
+      radius: 200 # spawn area outer radius
+      exclusion: 0 # spawn area inner radius

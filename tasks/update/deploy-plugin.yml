@@ -1,0 +1,39 @@
+---
+#task to deploy a single plugin
+
+#Arguments expected:
+#target_plugin_dir: Full path of the directory all plugins will be copied into
+#plugin_name: Name of the plugin to copy which is contained in both its config folder and jar name 
+#plugin_jar_folder: Absolute path of the folder containing all plugin jars
+#shard_plugin_config_folder: Absolute path of the folder containing the config files of this plugin specific to this shard
+#category_plugin_config_folder: Absolute path of the folder containing the config files of this plugin for the category of the shard
+
+
+- name: "Copy {{ plugin_name }} jarfile public"
+  copy: src={{ mc_plugin_jar }} dest={{ target_plugin_dir }}/{{ mc_plugin_jar | basename }} owner={{ unix_username }} mode="u=rw,g=r,o=r"
+  with_fileglob: "{{ plugin_jar_folder }}/{{ plugin_name }}-*.jar"
+  loop_control:
+    loop_var: mc_plugin_jar
+
+- name: "Copy {{ plugin_name }} jarfile private"
+  copy: src={{ mc_plugin_jar }} dest={{ target_plugin_dir }}/{{ mc_plugin_jar | basename | regex_replace('\.priv\.jar', '.jar') }} owner={{ unix_username }} mode="u=rw,g=r,o=r"
+  with_fileglob: "{{ plugin_jar_folder }}/{{ plugin_name }}-*.jar.priv"
+  loop_control:
+    loop_var: mc_plugin_jar
+
+- name: "Create {{ plugin_name }} folder"
+  file: "path={{ target_plugin_dir }}/{{ plugin_name }} state=directory owner={{ unix_username }} mode=0755"
+
+#Config precedence is, with later ones overwriting previous ones:
+# - Public category
+# - Private category
+# - Public shard
+# - Private shard
+
+
+- name: "Deploy {{ plugin_name }} category configurations recursively"
+  include: "tasks/update/deploy-config-folder.yml src_config_path={{ category_plugin_config_folder }} target_config_path={{ target_plugin_dir }}/{{ plugin_name }}"
+  when: category_plugin_config_folder is defined
+
+- name: "Deploy {{ plugin_name }} shard specific configurations recursively"
+  include: "tasks/update/deploy-config-folder.yml src_config_path={{ shard_plugin_config_folder }} target_config_path={{ target_plugin_dir }}/{{ plugin_name }}"
