@@ -26,7 +26,7 @@ shard_categories:
 #Make sure to also edit the server list in bungees config.yml when you add new servers here
 
 shards:
- - { name: 'alpha', categories: ['nether','starter'], port: 'x', nice_name: 'Asmodeus', limit_monster: '80', ticks_monster: '200', lagg_mob: '5000', bastion: '3.35', bricks: '40', iron: '200', gold: '400', diamond: '1500', netherite: '4000'}
+ - { name: 'alpha', categories: ['nether','starter'], port: 'x', nice_name: 'Asmodeus', limit_monster: '80', ticks_monster: '200', lagg_mob: '5000', bastion: '3.35', bricks: '40', iron: '200', gold: '400', diamond: '1500', netherite: '4000', ironymin:'1',ironymax:'256',ironchance:'0.015',ironmin:'1',ironmax:'4'}
  - { name: 'beta', categories: ['nether','non_starter'], port: 'x', nice_name: 'Brimstone', limit_monster: '100', ticks_monster: '100', lagg_mob: '6000', bastion: '3.35', bricks: '30', iron: '175', gold: '350', diamond: '1400', netherite: '3666'}
  - { name: 'gamma', categories: ['nether','non_starter'], port: 'x', nice_name: 'Cerberus', limit_monster: '120', ticks_monster: '50', lagg_mob: '7000', bastion: '3.35', bricks: '20', iron: '150', gold: '300', diamond: '1300', netherite: '3333'}
  - { name: 'delta', categories: ['nether','non_starter'], port: 'x', nice_name: 'Deracinate', limit_monster: '140', ticks_monster: '25', lagg_mob: '8000', bastion: '3.35', bricks: '10', iron: '125', gold: '250', diamond: '1200', netherite: '3000'}
