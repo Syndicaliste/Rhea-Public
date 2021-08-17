@@ -173,11 +173,11 @@ drops:
       -  ==: org.bukkit.inventory.ItemStack
          type: IRON_ORE
          amount: 1
-      minY: 1
-      maxY: 256
-      chance: 0.015
-      minAmount: 1
-      maxAmount: 4
+      minY: {{ shard.ironymin }}
+      maxY: {{ shard.ironymax }}
+      chance: {{ shard.ironchance }}
+      minAmount: {{ shard.ironmin }}
+      maxAmount: {{ shard.ironmax }}
       transformIfAble: true
       biomes:
          MESA:
