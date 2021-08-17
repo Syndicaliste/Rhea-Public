@@ -8,72 +8,120 @@ map_save_active: false
 transform_attempt_multiplier: 3
 tools: {}
 blocks:
-   netherrack:
+stone:
       allTypes: false
       materials:
-         netherrack:
-            material: NETHERRACK
-         basalt:
-            material: BASALT
-         blackstone:
-            material: BLACKSTONE
-         magmablock:
-            material: MAGMA_BLOCK
+         stone:
+            material: STONE
+         cobblestone:
+            material: COBBLESTONE
+         dirt:
+            material: DIRT
+         andesite:
+            material: ANDESITE
+         diorite:
+            material: DIORITE
+         granite:
+            material: GRANITE
+         hard_clay:
+            material: TERRACOTTA
+         gravel:
+            material: GRAVEL
       dropMultiple: false
       dropList:
       - coal_ore_transform
       - iron_ore_transform
       - redstone_ore_transform
       - gold_ore_transform
-      - debris_transform
-      - diamond_ore
-      - debris_low
-      - coal_ore_all
-      - iron_ore_all
-      - redstone_ore_all
-      - gold_ore_all
-      - diamond_ore_all
-      - coal_N1
-      - iron_N1
-      - redstone_N1
-      - gold_N1
-      - debris_N1
-      - diamond_N1
-      - coal_N2
-      - iron_N2
-      - redstone_N2
-      - gold_N2
-      - debris_N2
-      - diamond_N2
-      - coal_N3
-      - iron_N3
-      - redstone_N3
-      - gold_N3
-      - debris_N3
-      - diamond_N3
-   soul:
-      materials:
-         soulsand:
-            material: SOUL_SAND
-         soulsoil:
-            material: SOUL_SOIL
+      - lapis_ore_transform
+      - ancient_debris_transform
+      - fossil_drop
+      - diamond_ore_vein
+   rack:
+      material: NETHERRACK
       dropMultiple: false
       dropList:
-      - grass_transform
+      - quartz_transform
       - glowstone_transform
-      - bone_transform
+      - ancient_debris_transform
+   oak:
+     material: OAK_LOG
+     dropMultiple: false
+     dropList:
+      - oak_drop
+   spruce:
+     material: SPRUCE_LOG
+     dropMultiple: false
+     dropList:
+      - spruce_drop
+   birch:
+     material: BIRCH_LOG
+     dropMultiple: false
+     dropList:
+      - birch_drop
+   jungle:
+     material: JUNGLE_LOG
+     dropMultiple: false
+     dropList:
+      - jungle_drop
+   acacia:
+     material: ACACIA_LOG
+     dropMultiple: false
+     dropList:
+      - acacia_drop
+   dark_oak:
+     material: DARK_OAK_LOG
+     dropMultiple: false
+     dropList:
+      - dark_oak_drop
+   crimson:
+     material: CRIMSON_STEM
+     dropMultiple: false
+     dropList:
+      - crimson_drop
+   warped:
+     material: WARPED_STEM
+     dropMultiple: false
+     dropList:
+      - warped_drop
+   pumpkin:
+     material: PUMPKIN
+     dropMultiple: false
+     dropList:
+      - pumpkin_drop
+   melon:
+     material: MELON
+     dropMultiple: false
+     dropList:
+      - melon_drop
 drops:
-   grass_transform:
+   fossil_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
-         type: GRASS
+         type: PRISMARINE_SHARD
+         amount: 1
+         meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            display-name: §3Fossil
+            lore:
+            - Crack me in a factory for a prize!
+      minY: 1
+      maxY: 256
+      chance: 0.0075
+      minAmount: 1
+      maxAmount: 1
+   quartz_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: NETHER_QUARTZ_ORE
          v: 1
          amount: 1
       minY: 1
       maxY: 256
-      chance: 0.001
-      minAmount: 1
-      maxAmount: 3
+      chance: 0.004
+      minAmount: 2
+      maxAmount: 6
       transformIfAble: true
    glowstone_transform:
       package:
@@ -83,142 +131,268 @@ drops:
          amount: 1
       minY: 1
       maxY: 256
-      chance: 0.002
+      chance: 0.004
       minAmount: 2
       maxAmount: 4
-      transformIfAble: true
-   bone_transform:
-      package:
-      -  ==: org.bukkit.inventory.ItemStack
-         type: BONE_BLOCK
-         v: 1
-         amount: 1
-      minY: 1
-      maxY: 256
-      chance: 0.002
-      minAmount: 1
-      maxAmount: 2
       transformIfAble: true
    coal_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: COAL_ORE
-         v: 1
          amount: 1
       minY: 1
-      maxY: 60
-      chance: 0.009
+      maxY: 256
+      chance: 0.012
       minAmount: 2
-      maxAmount: 8
+      maxAmount: 6
       transformIfAble: true
    iron_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: IRON_ORE
-         v: 1
          amount: 1
-      minY: 57
-      maxY: 83
-      chance: 0.003
-      minAmount: 2
-      maxAmount: 5
+      minY: 1
+      maxY: 256
+      chance: 0.015
+      minAmount: 1
+      maxAmount: 4
       transformIfAble: true
+      biomes:
+         MESA:
+            chance: 0.01
+         MESA_ROCK:
+            chance: 0.01
+         MESA_CLEAR_ROCK:
+            chance: 0.01
    gold_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
-         type: NETHER_GOLD_ORE
-         v: 1
+         type: GOLD_ORE
          amount: 1
-      minY: 20
-      maxY: 180
+      minY: 1
+      maxY: 70
       chance: 0.0035
-      minAmount: 2
-      maxAmount: 5
+      minAmount: 1
+      maxAmount: 4
       transformIfAble: true
    redstone_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: REDSTONE_ORE
-         v: 1
          amount: 1
-      minY: 170
-      maxY: 200
-      chance: 0.0002
-      minAmount: 2
+      minY: 1
+      maxY: 70
+      chance: 0.0040
+      minAmount: 1
       maxAmount: 3
       transformIfAble: true
-   debris_low:
+   lapis_ore_transform:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: LAPIS_ORE
+         amount: 1
+      minY: 1
+      maxY: 70
+      chance: 0.0045
+      minAmount: 1
+      maxAmount: 4
+      transformIfAble: true
+   ancient_debris_transform:
+      prefix: You sense debris nearby
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: ANCIENT_DEBRIS
-         v: 1
-         amount: 1
-      minY: 8
-      maxY: 220
-      chance: 0.0001
-      minAmount: 1
-      maxAmount: 1
-      transformIfAble: true
-   coal_ore_all:
-      package:
-      -  ==: org.bukkit.inventory.ItemStack
-         type: COAL_ORE
-         v: 1
+         v: 2586
          amount: 1
       minY: 1
-      maxY: 256
-      chance: 0.003
+      maxY: 70
+      chance: 0.0009
       minAmount: 1
       maxAmount: 1
       transformIfAble: true
-   iron_ore_all:
+      biomes:
+         NETHER_WASTES:
+            chance: 0.0018
+   emerald_ore_dank:
       package:
       -  ==: org.bukkit.inventory.ItemStack
-         type: IRON_ORE
-         v: 1
+         type: EMERALD_ORE
          amount: 1
-      minY: 1
-      maxY: 256
-      chance: 0.001
+      minY: 42
+      maxY: 42
+      chance: 3.0E-8
       minAmount: 1
       maxAmount: 1
       transformIfAble: true
-   gold_ore_all:
+   oak_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
-         type: NETHER_GOLD_ORE
-         v: 1
+         type: OAK_LOG
+         v: 2586
          amount: 1
+      tools:
+       - netherite_axe
       minY: 1
       maxY: 256
-      chance: 0.001
+      chance: 0.05
       minAmount: 1
       maxAmount: 1
-      transformIfAble: true
-   redstone_ore_all:
+   spruce_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
-         type: REDSTONE_ORE
-         v: 1
+         type: SPRUCE_LOG
+         v: 2586
          amount: 1
+      tools:
+       - netherite_axe	 
       minY: 1
       maxY: 256
-      chance: 0.0006
+      chance: 0.05
       minAmount: 1
       maxAmount: 1
-      transformIfAble: true
-   diamond_ore_all:
+   birch_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: BIRCH_LOG
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	 
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   jungle_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: JUNGLE_LOG
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	 
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   acacia_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: ACACIA_LOG
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	 
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   dark_oak_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: DARK_OAK_LOG
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	 
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   crimson_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: CRIMSON_STEM
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	 
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   warped_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: WARPED_STEM
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   melon_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: MELON
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   pumpkin_drop:
+      package:
+      -  ==: org.bukkit.inventory.ItemStack
+         type: PUMPKIN
+         v: 2586
+         amount: 1
+      tools:
+       - netherite_axe	
+      minY: 1
+      maxY: 256
+      chance: 0.05
+      minAmount: 1
+      maxAmount: 1
+   diamond_ore_vein:
+      prefix: You sense a diamond nearby
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: DIAMOND_ORE
-         v: 1
          amount: 1
       minY: 1
-      maxY: 256
-      chance: 0.0005
+      maxY: 16
+      chance: 1.0
+      transformIfAble: true
+#if you're using a blockconfig for a vein you probably want chance at 100%
+#and configure chance in the vein itself as density
       minAmount: 1
       maxAmount: 1
       transformIfAble: true
+      veinNature:
+#used for generator, should be different for each vein
+         densitySeed: "{{ hidden_ore_density_seed }}"
+         heightSeed: "{{ hidden_ore_height_seed }}"
+         density: 0.03
+#ore chance multiplier
+         maxSpan: 13
+#max thickness of the vein
+         densityBonus: -0.3
+#applied to the result of the noise function which will be between -1 and 1
+#added before density is applied
+#e.g. 0.0 will result in 50% ore coverage, -0.5 25%, -1 0%, 1 100%
+         areaHeight: 10
+#the average height of the veins
+         areaSpan: 10
+#maximum random difference from the average
+         heightLength: 10
+#distance in blocks between height slope change
+         densityLength: 90
+#distance in blocks between density slope change
+         forceVisibleTransform: true
+# Basically, if a vein block condition is met, check all immediate neighboring, and now visible blocks
+# if they should be revealed, subject to the drop & block configurations.
+# revealed as well
    coal_N1:
       package:
       -  ==: org.bukkit.inventory.ItemStack
