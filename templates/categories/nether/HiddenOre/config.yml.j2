@@ -128,22 +128,22 @@ drops:
             display-name: §3Fossil
             lore:
             - Crack me in a factory for a prize!
-      minY: 1
-      maxY: 256
-      chance: 0.0075
-      minAmount: 1
-      maxAmount: 1
+     minY: {{ shard.fossilymin }}
+      maxY: {{ shard.fossilymax }}
+      chance: {{ shard.fossilchance }}
+      minAmount: {{ shard.fossilmin }}
+      maxAmount: {{ shard.fossilmax }}
    quartz_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: NETHER_QUARTZ_ORE
          v: 1
          amount: 1
-      minY: 1
-      maxY: 256
-      chance: 0.004
-      minAmount: 2
-      maxAmount: 6
+      minY: {{ shard.quartzymin }}
+      maxY: {{ shard.quartzymax }}
+      chance: {{ shard.quartzchance }}
+      minAmount: {{ shard.quartzmin }}
+      maxAmount: {{ shard.quartzmax }}
       transformIfAble: true
    glowstone_transform:
       package:
@@ -151,22 +151,22 @@ drops:
          type: GLOWSTONE
          v: 1
          amount: 1
-      minY: 1
-      maxY: 256
-      chance: 0.004
-      minAmount: 2
-      maxAmount: 4
+      minY: {{ shard.glowstoneymin }}
+      maxY: {{ shard.glowstoneymax }}
+      chance: {{ shard.qlowstonechance }}
+      minAmount: {{ shard.glowstonemin }}
+      maxAmount: {{ shard.glowstonemax }}
       transformIfAble: true
    coal_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: COAL_ORE
          amount: 1
-      minY: 1
-      maxY: 256
-      chance: 0.012
-      minAmount: 2
-      maxAmount: 6
+      minY: {{ shard.coalymin }}
+      maxY: {{ shard.coalymax }}
+      chance: {{ shard.coalchance }}
+      minAmount: {{ shard.coalmin }}
+      maxAmount: {{ shard.coalmax }}
       transformIfAble: true
    iron_ore_transform:
       package:
@@ -191,33 +191,33 @@ drops:
       -  ==: org.bukkit.inventory.ItemStack
          type: GOLD_ORE
          amount: 1
-      minY: 1
-      maxY: 70
-      chance: 0.0035
-      minAmount: 1
-      maxAmount: 4
+      minY: {{ shard.goldymin }}
+      maxY: {{ shard.goldymax }}
+      chance: {{ shard.qoldchance }}
+      minAmount: {{ shard.goldmin }}
+      maxAmount: {{ shard.goldmax }}
       transformIfAble: true
    redstone_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: REDSTONE_ORE
          amount: 1
-      minY: 1
-      maxY: 70
-      chance: 0.0040
-      minAmount: 1
-      maxAmount: 3
+      minY: {{ shard.redstoneymin }}
+      maxY: {{ shard.redstoneymax }}
+      chance: {{ shard.redstonechance }}
+      minAmount: {{ shard.redstonemin }}
+      maxAmount: {{ shard.redstonemax }}
       transformIfAble: true
    lapis_ore_transform:
       package:
       -  ==: org.bukkit.inventory.ItemStack
          type: LAPIS_ORE
          amount: 1
-      minY: 1
-      maxY: 70
-      chance: 0.0045
-      minAmount: 1
-      maxAmount: 4
+      minY: {{ shard.lapisymin }}
+      maxY: {{ shard.lapisymax }}
+      chance: {{ shard.lapischance }}
+      minAmount: {{ shard.lapismin }}
+      maxAmount: {{ shard.lapismax }}
       transformIfAble: true
    ancient_debris_transform:
       prefix: You sense debris nearby
@@ -226,11 +226,11 @@ drops:
          type: ANCIENT_DEBRIS
          v: 2586
          amount: 1
-      minY: 1
-      maxY: 70
-      chance: 0.0009
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.ancientymin }}
+      maxY: {{ shard.ancientymax }}
+      chance: {{ shard.ancientchance }}
+      minAmount: {{ shard.ancientmin }}
+      maxAmount: {{ shard.ancientmax }}
       transformIfAble: true
       biomes:
          NETHER_WASTES:
@@ -238,13 +238,11 @@ drops:
    emerald_ore_dank:
       package:
       -  ==: org.bukkit.inventory.ItemStack
-         type: EMERALD_ORE
-         amount: 1
-      minY: 42
-      maxY: 42
-      chance: 3.0E-8
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.emeraldymin }}
+      maxY: {{ shard.emeraldymax }}
+      chance: {{ shard.emeraldchance }}
+      minAmount: {{ shard.emeraldmin }}
+      maxAmount: {{ shard.emeraldmax }}
       transformIfAble: true
    oak_drop:
       package:
@@ -254,11 +252,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.oakymin }}
+      maxY: {{ shard.oakymax }}
+      chance: {{ shard.oakchance }}
+      minAmount: {{ shard.oakmin }}
+      maxAmount: {{ shard.oakmax }}
    spruce_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -267,11 +265,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	 
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.spruceymin }}
+      maxY: {{ shard.spruceymax }}
+      chance: {{ shard.sprucechance }}
+      minAmount: {{ shard.sprucemin }}
+      maxAmount: {{ shard.sprucemax }}
    birch_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -280,11 +278,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	 
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.birchymin }}
+      maxY: {{ shard.birchymax }}
+      chance: {{ shard.birchchance }}
+      minAmount: {{ shard.birchmin }}
+      maxAmount: {{ shard.birchmax }}
    jungle_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -293,11 +291,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	 
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.jungleymin }}
+      maxY: {{ shard.jungleymax }}
+      chance: {{ shard.junglechance }}
+      minAmount: {{ shard.junglemin }}
+      maxAmount: {{ shard.junglemax }}
    acacia_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -306,11 +304,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	 
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.acaciaymin }}
+      maxY: {{ shard.acaciaymax }}
+      chance: {{ shard.acaciachance }}
+      minAmount: {{ shard.acaciamin }}
+      maxAmount: {{ shard.acaciamax }}
    dark_oak_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -319,11 +317,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	 
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.darkymin }}
+      maxY: {{ shard.darkymax }}
+      chance: {{ shard.darkchance }}
+      minAmount: {{ shard.darkmin }}
+      maxAmount: {{ shard.darkmax }}
    crimson_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -332,11 +330,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	 
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.crimsonymin }}
+      maxY: {{ shard.crimsonymax }}
+      chance: {{ shard.crimsonchance }}
+      minAmount: {{ shard.crimsonmin }}
+      maxAmount: {{ shard.crimsonmax }}
    warped_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -345,11 +343,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.warpedymin }}
+      maxY: {{ shard.warpedymax }}
+      chance: {{ shard.warpedchance }}
+      minAmount: {{ shard.warpedmin }}
+      maxAmount: {{ shard.warpedmax }}
    melon_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -358,11 +356,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.melonymin }}
+      maxY: {{ shard.melonymax }}
+      chance: {{ shard.melonchance }}
+      minAmount: {{ shard.melonmin }}
+      maxAmount: {{ shard.melonmax }}
    pumpkin_drop:
       package:
       -  ==: org.bukkit.inventory.ItemStack
@@ -371,11 +369,11 @@ drops:
          amount: 1
       tools:
        - netherite_axe	
-      minY: 1
-      maxY: 256
-      chance: 0.05
-      minAmount: 1
-      maxAmount: 1
+      minY: {{ shard.pumpkinymin }}
+      maxY: {{ shard.pumpkinymax }}
+      chance: {{ shard.pumpkinchance }}
+      minAmount: {{ shard.pumpkinmin }}
+      maxAmount: {{ shard.pumpkinmax }}
    diamond_ore_vein:
       prefix: You sense a diamond nearby
       package:
